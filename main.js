@@ -7,7 +7,7 @@ const movies = [
         type: "Action",
         rating: 9.0,
         Director: "Christopher Nolan",
-        img: "./images/TheDarkKnight.jpg",
+        img: "images/TheDarkKnight.jpg",
         time: "2h 32min ",
       },
 
@@ -17,7 +17,7 @@ const movies = [
         type: "Action",
         rating: 8.8,
         Director: "Alper Caglar",
-        img: "./images/TheMountainII.jpg",
+        img: "images/TheMountainII.jpg",
         time: "2h 15min ",
       },
 
@@ -27,7 +27,7 @@ const movies = [
         type: "Action",
         rating: 8.8,
         Director: "Christopher Nolan",
-        img: "./images/Inception.jpg",
+        img: "images/Inception.jpg",
         time: "2h 28min",
       },
 
@@ -38,7 +38,7 @@ const movies = [
         Director:
           " Lana Wachowski (as The Wachowski Brothers), Lilly Wachowski (as The Wachowski Brothers)",
         rating: 8.7,
-        img: "./images/TheMatrix.jpg",
+        img: "images/TheMatrix.jpg",
         time: "2h 28min",
       },
     },
@@ -51,9 +51,39 @@ const movies = [
         date: 2019,
         type: "Comedy",
         rating: 8.6,
-        Director: "Christopher Nolan",
-        img: "./images/TheDarkKnight.jpg",
-        time: "2h 32min ",
+        Director: "Bong Joon Ho",
+        img: "images/Parasite.jpg",
+        time: " 2h 12min",
+      },
+
+      Parasite: {
+        name: "Parasite",
+        date: 2019,
+        type: "Comedy",
+        rating: 8.6,
+        Director: "Bong Joon Ho",
+        img: "./images/Parasite.jpg",
+        time: " 2h 12min",
+      },
+
+      Parasite: {
+        name: "Parasite",
+        date: 2019,
+        type: "Comedy",
+        rating: 8.6,
+        Director: "Bong Joon Ho",
+        img: "./images/Parasite.jpg",
+        time: " 2h 12min",
+      },
+
+      Parasite: {
+        name: "Parasite",
+        date: 2019,
+        type: "Comedy",
+        rating: 8.6,
+        Director: "Bong Joon Ho",
+        img: "./images/Parasite.jpg",
+        time: " 2h 12min",
       },
     },
   },
@@ -74,13 +104,17 @@ $("#moviesNavbar").on("click", function () {
   $("#randomNavbar").css("color", "#565950");
   $("#moviesNavbar").css("color", "goldenrod");
 
-  for (const key in movies) {
-    for (const movie in key) {
-      $(`<div class="column"> </div>`);
+  for (let index = 0; index < movies.length; index++) {
+    for (const key in movies[index]) {
+      for (const movie in movies[index][key]) {
+        let c = $(`<div class="column"> 
+        <img  src=${movies[index][key][movie].img}>
+         <h2>${movies[index][key][movie].name}<h2> 
+      </div>`);
+        body.append(c);
+      }
     }
   }
-
-  body.append(MoviePage);
 });
 
 $("#randomNavbar").on("click", function () {
