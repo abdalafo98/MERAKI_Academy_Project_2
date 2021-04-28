@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji";
+  box-sizing: border-box;
+}
+
+body {
+  margin-bottom: 62spx;
+}
+
+.banner {
+  width: 100%;
+  height: 150vh;
+  background-image: linear-gradient(#bbd2d496, #c8d5d694),
+    url(images/banner.png);
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 1px;
+}
+
+.Navbar {
+  box-shadow: 2px 2px #a8a7a791;
+  background-color: #ffffff3a;
+  box-shadow: 30px;
+  width: 100%;
+  height: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: 0.9s;
+  padding-right: 60px;
+}
+
+.spanColor {
+  color: goldenrod;
+  text-shadow: 2px 2px 2px rgba(99, 98, 98, 0.37);
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.logo {
+  margin: 30px 30px 30px 600px;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  text-shadow: 2px 2px 2px rgba(99, 98, 98, 0.37);
+  transition: 0.9s;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.Navbar ul li {
+  cursor: pointer;
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+  position: relative;
+  text-decoration: none;
+  color: #565950;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  text-shadow: 1px 1px 1px rgba(151, 150, 150, 0.877);
+}
+
+.Navbar ul li:hover {
+  text-decoration: none;
+  color: goldenrod;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.content {
+  margin-top: 80px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  color: #2b2929;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+}
+
+.content h1 {
+  font-size: 40px;
+  margin: 39px;
+  text-shadow: 2px 2px 2px rgba(73, 72, 72, 0.658);
+  transition: 0.9s;
+}
+
+.content p {
+  font-size: 30px;
+  margin: 10px 0px 0px 40px;
+  font-weight: 400;
+  line-height: 25px;
+  text-shadow: 2px 2px 2px rgba(73, 72, 72, 0.658);
+  transition: 0.9s;
+}
+
+.button1 {
+  width: 125px;
+  padding: 10px 0;
+  text-align: center;
+  margin: 38px;
+  border: #26231f;
+  background-color: goldenrod;
+  border-radius: 5px;
+  color: white;
+  font-size: 25px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.9s;
+}
+
+.button1:hover {
+  width: 125px;
+  padding: 10px 0;
+  text-align: center;
+  margin: 38px;
+  border: #26231f;
+  background-color: #1bc065;
+  border-radius: 5px;
+  color: white;
+  font-size: 25px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.9s;
+}
+
+.color {
+  color: goldenrod;
+}
+
+.containers {
+  margin-top: 50px;
+  align-items: center;
+  display: grid;
+  flex-direction: column;
+
+  justify-content: center;
+  text-align: center;
+}
+
+.containers h2 {
+  font-size: 35px;
+  border-bottom: 6px solid teal;
+}
+
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+.row {
+  align-items: center;
+  margin: 0 -5px;
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.card {
+  transition: 0.9s;
+  margin: 30px;
+  box-shadow: 0 4px 8px 0 rgb(104, 104, 104);
+  padding: 30px;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(220, 236, 236);
+  color: black;
+  text-decoration: none;
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+
+.card:hover {
+  margin: 30px;
+  box-shadow: 0 4px 8px 0 goldenrod;
+  padding: 30px;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(220, 236, 236);
+  cursor: pointer;
+}
+
+.card::after {
+  margin: 30px;
+  box-shadow: 0 4px 8px 0 rgb(202, 202, 202);
+  padding: 30px;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(220, 236, 236);
+}
+
+.card img {
+  height: 100px;
+  width: 100px;
+}
+
+.card h2 {
+  font-size: 20px;
+}
+
+.card a {
+  color: black;
+  text-decoration: none;
+}
+
+.footer {
+  text-align: center;
+  font-size: 15px;
+  color: white;
+  font-weight: bold;
+  position: fixed;
+  padding-top: 20px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #494948;
+  align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  .banner {
+    display: block;
+    margin-bottom: 20px;
+  }
+}
