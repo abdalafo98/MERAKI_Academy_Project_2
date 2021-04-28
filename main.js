@@ -90,6 +90,10 @@ const movies = [
 
 const body = $("body");
 const row = $(".row");
+const changeKey = (e) => {
+  console.log(e);
+  localStorage.setItem("movie", e);
+};
 $("#homeNavbar").on("click", function () {
   $(".banner").show();
   $(".column").hide();
@@ -107,25 +111,28 @@ $("#moviesNavbar").on("click", function () {
   body.css({
     marginBottom: "900px",
   });
-
+  row.html("");
   for (let index = 0; index < movies.length; index++) {
     for (const key in movies[index]) {
       for (const movie in movies[index][key]) {
-        const c = $(`<div class="card">
+        console.log(movies[index][key][movie].name);
+        const card = $(`<div class="card" onclick="changeKey('${movies[index][key][movie].name}')">
         <div class="card-image">
-          <a href="#">
-        <img id="img" height="400px" width="200px" src=${movies[index][key][movie].img}></a></div>
+        <img id="img" height="400px" width="200px" src=${movies[index][key][movie].img}></div>
         <div class="card-description">
         <h2>${movies[index][key][movie].name}<h2> 
         <h3>Date: <span class="fontCard">${movies[index][key][movie].date}</span></h3>
         <h4>Director:<span class="fontCard"> ${movies[index][key][movie].Director}</span></h4>
         </div>
-      </div>   
       </div>`);
-        row.append(c);
+        row.append(card);
       }
     }
   }
+});
+
+$(".card").on("click", function () {
+  let r = localStorage.getItem("movie");
 });
 
 $("#randomNavbar").on("click", function () {

@@ -199,7 +199,7 @@ div.card {
   flex-direction: row;
   display: inline-block;
   margin: 20px;
-
+  cursor: pointer;
   flex-grow: 1;
 }
 
