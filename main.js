@@ -7,7 +7,7 @@ const movies = [
         name: "The Dark Knight ",
         date: "18 July 2008",
         type: "Action",
-        rating: 9.0,
+        rating: 9.1,
         Director: "Christopher Nolan",
         img: "images/TheDarkKnight.jpg",
         time: "2h 32min ",
@@ -169,33 +169,27 @@ const changeKey = (e) => {
         if (movie === e) {
           b.html("");
           const decMovie = $(`
-          <div class="center">
           <div class="b">
-          
     <div class="b">
     <img height="400px" width="300px" alt="" id="imgDes" src="${movies[index][key][movie].img}">
- 
-  <div class="b" >
-    <h2 id="${movies[index][key][movie].type}">${movies[index][key][movie].name}</h2>
-    <h4 id="des">Date:<h6>${movies[index][key][movie].date}</h6></h4>
-    <h4 id="des">Type:<h6>${movies[index][key][movie].type}</h6></h4>
-    <h4 id="des">${movies[index][key][movie].rating}</h4>
-    <h4 id="des">${movies[index][key][movie].Director}</h4>
-    <h4 id="des">${movies[index][key][movie].time}</h4>
-  </div>
-          </div>
-          </div> 
-          `);
-          // const c = $(`<div class="b">
-          //   <div class="card-image">
-          //   <img id="img" src=${movies[index][key][movie].img}></div>
-          //   <div class="card-description">
-          //   <h2>${movies[index][key][movie].name}<h2>
-          //   <h2 id="${movies[index][key][movie].type}">${movies[index][key][movie].type}</h2>
-          //   <h3>Date: <span class="fontCard">${movies[index][key][movie].date}</span></h3>
-          //   <h4>Director:<span class="fontCard"> ${movies[index][key][movie].Director}</span></h4>
-          //   </div>
-          // </div>`);
+  <div class="c" >
+  
+    <p id="${movies[index][key][movie].type}">${movies[index][key][movie].name}</p>
+    <p id="des"><img src="./images/star.png" width="25" height="25" alt="star">
+    <b>${movies[index][key][movie].rating}</b></p>
+    <p id="des"><b>Date: </b>${movies[index][key][movie].date}</p>
+    <p id="des"><b>Type: </b>${movies[index][key][movie].type}</p>
+
+    <p id="des"><b>Director: </b>${movies[index][key][movie].Director}</p>
+    <p id="des"><b>Time: </b>${movies[index][key][movie].time}</p>
+  </div></div></div>
+  
+  <div class="desMovie'>
+
+  </div
+  
+  `);
+
           b.append(decMovie);
         }
       }

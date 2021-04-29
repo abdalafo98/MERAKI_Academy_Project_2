@@ -179,16 +179,15 @@ body {
   margin: 20px 0px 20px 20px;
 }
 
-.row {
+/* .row {
   align-items: center;
-  grid-auto-columns: auto;
   justify-content: center;
-}
-.row:after {
+} */
+/* .row:after {
   content: "";
   display: table;
   clear: both;
-}
+} */
 
 div.card {
   width: 280px;
@@ -198,7 +197,7 @@ div.card {
   display: flex;
   flex-direction: row;
   display: inline-block;
-  margin: 20px;
+  margin: 30px;
   cursor: pointer;
   flex-grow: 1;
 }
@@ -234,7 +233,8 @@ div.card-description h2 {
   font-weight: 700;
   margin-bottom: 6px;
   /* background-color: rgb(92, 18, 15); */
-  background-color: rgb(148, 5, 0);
+  background-color: rgb(189, 29, 23);
+  border-radius: 15px;
 }
 
 #colorType {
@@ -244,6 +244,7 @@ div.card-description h2 {
   font-weight: 700;
   margin-bottom: 6px;
   background-color: #0d0d0d;
+  border-radius: 20px;
 }
 
 #Action {
@@ -253,6 +254,7 @@ div.card-description h2 {
   font-weight: 700;
   margin-bottom: 6px;
   background-color: #0d0d0d;
+  border-radius: 20px;
 }
 #Comedy {
   text-align: center;
@@ -261,6 +263,7 @@ div.card-description h2 {
   font-weight: 700;
   margin-bottom: 6px;
   background-color: #ccb63a;
+  border-radius: 20px;
 }
 #Drama {
   text-align: center;
@@ -269,6 +272,7 @@ div.card-description h2 {
   font-weight: 700;
   margin-bottom: 6px;
   background-color: #095f17;
+  border-radius: 20px;
 }
 
 div.card-description h3 {
@@ -321,7 +325,8 @@ div.card-image img:hover {
 
 #filter {
   margin: auto;
-  width: 97%;
+  width: 79%;
+  background-color: whitesmoke;
 }
 
 /* The "show" class is added to the filtered elements */
@@ -333,16 +338,20 @@ div.card-image img:hover {
 }
 /* Style the buttons */
 .btn {
+  font-size: 15px;
+  font-weight: 500;
   border: none;
   outline: none;
   padding: 12px 16px;
-  background-color: #f1f1f1;
+  background-color: #302f2f;
   cursor: pointer;
+  border-radius: 20px;
+  color: white;
 }
 
 /* Add a light grey background on mouse-over */
 .btn:hover {
-  background-color: rgb(233, 227, 227);
+  background-color: rgb(129, 129, 129);
 }
 
 /* Add a dark background to the active button */
@@ -371,10 +380,6 @@ div.card-image img:hover {
   margin-left: 50px;
 }
 
-.des {
-  margin-left: 100px;
-}
-
 #imgDes:hover {
   border: 1px solid rgb(202, 196, 196);
   box-shadow: 7px rgb(153, 14, 14);
@@ -383,7 +388,7 @@ div.card-image img:hover {
 .center {
   align-items: center;
   justify-self: center;
-  margin-right: 400px;
+  margin-left: 400px;
 }
 
 #des {
@@ -391,6 +396,8 @@ div.card-image img:hover {
   justify-self: center;
   margin-left: 30px;
   margin-right: 30px;
+  margin-bottom: 18px;
+  margin-top: 18px;
 }
 
 #nameMov {
@@ -403,8 +410,20 @@ div.card-image img:hover {
 }
 .b {
   font-size: 20px;
+  float: left;
+  align-items: center;
+}
+.moviess {
+  margin: auto;
+  width: 80%;
+}
+
+.c {
+  font-size: 20px;
   float: right;
   align-items: center;
+  background-color: rgb(252, 252, 252);
+  padding-bottom: 130px;
 }
 .child {
   font-size: 12pt;
