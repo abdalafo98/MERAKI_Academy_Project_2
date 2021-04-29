@@ -1,9 +1,11 @@
+//data
 const movies = [
   {
     action: {
       TheDarkKnight: {
+        key: "TheDarkKnight",
         name: "The Dark Knight ",
-        date: 2008,
+        date: "18 July 2008",
         type: "Action",
         rating: 9.0,
         Director: "Christopher Nolan",
@@ -12,8 +14,9 @@ const movies = [
       },
 
       TheMountainII: {
+        key: "TheMountainII",
         name: "The Mountain II",
-        date: 2016,
+        date: "4 November 2016",
         type: "Action",
         rating: 8.8,
         Director: "Alper Caglar",
@@ -22,8 +25,9 @@ const movies = [
       },
 
       Inception: {
+        key: "Inception",
         name: "Inception",
-        date: 2010,
+        date: "16 July 2010",
         type: "Action",
         rating: 8.8,
         Director: "Christopher Nolan",
@@ -32,8 +36,9 @@ const movies = [
       },
 
       TheMatrix: {
+        key: "TheMatrix",
         name: "The Matrix",
-        date: 1999,
+        date: "31 March 1999",
         type: "Action",
         Director: " Lana Wachowski,Lilly",
         rating: 8.7,
@@ -46,8 +51,9 @@ const movies = [
   {
     comedy: {
       Parasite: {
+        key: "Parasite",
         name: "Parasite",
-        date: 2019,
+        date: "8 November 2019",
         type: "Comedy",
         rating: 8.6,
         Director: "Bong Joon Ho",
@@ -55,34 +61,85 @@ const movies = [
         time: " 2h 12min",
       },
 
-      Parasite: {
-        name: "Parasite",
-        date: 2019,
+      LifeIsBeautiful: {
+        key: "LifeIsBeautiful",
+        name: "Life Is Beautiful",
+        date: "20 December 1997",
         type: "Comedy",
         rating: 8.6,
-        Director: "Bong Joon Ho",
-        img: "./images/Parasite.jpg",
-        time: " 2h 12min",
+        Director: "Roberto Benigni",
+        img: "./images/LifeIsBeautifulLifeIsBeautiful.jpg",
+        time: "1h 56min",
       },
 
-      Parasite: {
-        name: "Parasite",
-        date: 2019,
+      TheIntouchables: {
+        key: "TheIntouchables",
+        name: "The Intouchables",
+        date: "2 November 2011",
         type: "Comedy",
-        rating: 8.6,
-        Director: "Bong Joon Ho",
-        img: "./images/Parasite.jpg",
-        time: " 2h 12min",
+        rating: 8.5,
+        Director: "Olivier Nakache,",
+        img: "./images/OlivierNakache.jpg",
+        time: "1h 52min",
       },
 
-      Parasite: {
-        name: "Parasite",
-        date: 2019,
+      BacktotheFuture: {
+        key: "BacktotheFuture",
+        name: "Back to the Future",
+        date: "3 July 1985",
         type: "Comedy",
-        rating: 8.6,
-        Director: "Bong Joon Ho",
-        img: "./images/Parasite.jpg",
+        rating: 8.5,
+        Director: "Robert Zemeckis",
+        img: "./images/Backtotheutre.jpg",
         time: " 2h 12min",
+      },
+    },
+  },
+
+  {
+    drama: {
+      TheGodfather: {
+        key: "TheGodfather",
+        name: "The Godfather",
+        date: "24 March 1972",
+        type: "Drama",
+        rating: 9.2,
+        Director: "Francis Ford",
+        img: "images/TheGodfather.jpg",
+        time: "2h 55min",
+      },
+
+      AngryMen: {
+        key: "AngryMen",
+        name: "12 Angry Men",
+        date: "10 April 1957",
+        type: "Drama",
+        rating: 9.0,
+        Director: "Sidney Lumet",
+        img: "images/12AngryMen.jpg",
+        time: " 1h 36min ",
+      },
+
+      Interstellar: {
+        key: "Interstellar",
+        name: "Interstellar",
+        date: "7 November 2014",
+        type: "Drama",
+        rating: 8.6,
+        Director: "Christopher Nolan",
+        img: "images/Interstellar.jpg",
+        time: "2h 49min",
+      },
+
+      Hamilton: {
+        key: "Hamilton",
+        name: "Hamilton",
+        date: "3 July 2020",
+        type: "Drama",
+        rating: 8.5,
+        Director: "Thomas Kail",
+        img: "images/Hamilton.jpg",
+        time: "2h 49min",
       },
     },
   },
@@ -90,51 +147,92 @@ const movies = [
 
 const body = $("body");
 const row = $(".row");
+const b = $(".b");
+
+// get name card
 const changeKey = (e) => {
   console.log(e);
   localStorage.setItem("movie", e);
+  row.hide();
+  // console.log(JSON.parse(e));
+
+  $(".card").hide();
+  for (let index = 0; index < movies.length; index++) {
+    for (const key in movies[index]) {
+      for (const movie in movies[index][key]) {
+        // let e = movies[index][key][movie].key;
+        // let q = localStorage.getItem("movie");
+        // console.log(movie);
+
+        if (movie === e) {
+          b.html("");
+          const c = $(`<div class="b"">
+            <div class="card-image">
+            <img id="img" src=${movies[index][key][movie].img}></div>
+            <div class="card-description">
+            <h2>${movies[index][key][movie].name}<h2>
+            <h2 id="${movies[index][key][movie].type}">${movies[index][key][movie].type}</h2>
+            <h3>Date: <span class="fontCard">${movies[index][key][movie].date}</span></h3>
+            <h4>Director:<span class="fontCard"> ${movies[index][key][movie].Director}</span></h4>
+            </div>
+          </div>`);
+          b.append(c);
+        }
+      }
+    }
+  }
 };
+
+//home page
 $("#homeNavbar").on("click", function () {
   $(".banner").show();
   $(".column").hide();
+  $(".row").hide();
 
-  $("#homeNavbar").css("color", "goldenrod");
+  $("#homeNavbar").css("color", "rgb(173, 34, 29)");
   $("#moviesNavbar").css("color", "#565950");
   $("#randomNavbar").css("color", "#565950");
 });
 
+//movies Page
 $("#moviesNavbar").on("click", function () {
   $(".banner").hide();
   $("#homeNavbar").css("color", "#565950");
   $("#randomNavbar").css("color", "#565950");
-  $("#moviesNavbar").css("color", "goldenrod");
-  body.css({
-    marginBottom: "900px",
-  });
+  $("#moviesNavbar").css("color", "rgb(173, 34, 29)");
+  body.css({ marginBottom: "300px" });
   row.html("");
+
+  //get all data
   for (let index = 0; index < movies.length; index++) {
     for (const key in movies[index]) {
       for (const movie in movies[index][key]) {
-        console.log(movies[index][key][movie].name);
-        const card = $(`<div class="card" onclick="changeKey('${movies[index][key][movie].name}')">
-        <div class="card-image">
-        <img id="img" height="400px" width="200px" src=${movies[index][key][movie].img}></div>
-        <div class="card-description">
-        <h2>${movies[index][key][movie].name}<h2> 
-        <h3>Date: <span class="fontCard">${movies[index][key][movie].date}</span></h3>
-        <h4>Director:<span class="fontCard"> ${movies[index][key][movie].Director}</span></h4>
-        </div>
-      </div>`);
+        let e = movies[index][key][movie];
+        const card = $(
+          `<div class="card" id= "card${index}" onclick="changeKey('${e.key}')">  
+          <div class="card-image">
+          <img id="img" src=${movies[index][key][movie].img}></div>
+          <div class="card-description">
+          <h2>${movies[index][key][movie].name}<h2> 
+          <h2 id="${movies[index][key][movie].type}">${movies[index][key][movie].type}</h2>
+          <h3>Date: <span class="fontCard">${movies[index][key][movie].date}</span></h3>
+          <h4>Director:<span class="fontCard"> ${movies[index][key][movie].Director}</span></h4>
+          </div> 
+          </div>`
+        );
+
         row.append(card);
       }
     }
   }
+  $(".row").show();
+  // $(".b").hide();
 });
 
-$(".card").on("click", function () {
-  let r = localStorage.getItem("movie");
-});
-
+//card page
+{
+}
+//random Movie
 $("#randomNavbar").on("click", function () {
   $(".banner").hide();
   $(".card").hide();

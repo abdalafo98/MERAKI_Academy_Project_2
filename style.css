@@ -35,7 +35,7 @@ body {
 }
 
 .spanColor {
-  color: goldenrod;
+  color: rgb(173, 34, 29);
   text-shadow: 2px 2px 2px rgba(99, 98, 98, 0.37);
 }
 
@@ -53,7 +53,7 @@ body {
 .logo {
   margin: 30px 30px 30px 30px;
   cursor: pointer;
-  color: rgb(0, 0, 0);
+  color: #220208;
   text-shadow: 2px 2px 2px rgba(99, 98, 98, 0.37);
   transition: 0.9s;
   align-items: center;
@@ -78,7 +78,7 @@ body {
 
 .Navbar ul li:hover {
   text-decoration: none;
-  color: goldenrod;
+  color: rgb(173, 34, 29);
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -118,7 +118,7 @@ body {
   text-align: center;
   margin: 38px;
   border: #26231f;
-  background-color: goldenrod;
+  background-color: rgb(173, 34, 29);
   border-radius: 5px;
   color: white;
   font-size: 25px;
@@ -133,7 +133,7 @@ body {
   text-align: center;
   margin: 38px;
   border: #26231f;
-  background-color: #1bc065;
+  background-color: #40010d;
   border-radius: 5px;
   color: white;
   font-size: 25px;
@@ -143,7 +143,7 @@ body {
 }
 
 .color {
-  color: goldenrod;
+  color: rgb(173, 34, 29);
 }
 
 .containers {
@@ -166,7 +166,7 @@ body {
   width: 25%;
   padding: 0 10px;
   box-shadow: 2px 2px 2px rgba(126, 126, 126, 0.658);
-  border-bottom: 1px solid goldenrod;
+  border-bottom: 1px solid rgb(173, 34, 29);
 
   margin: 20px 20px 20px 20px;
 }
@@ -175,13 +175,16 @@ body {
   float: left;
   width: 25%;
   padding: 0 10px;
-  text-shadow: 2px 2px 2px goldenrod;
+  text-shadow: 2px 2px 2px rgb(173, 34, 29);
   margin: 20px 0px 20px 20px;
 }
 
 .row {
   align-items: center;
   grid-auto-columns: auto;
+  justify-content: center;
+}
+#img {
 }
 
 .row:after {
@@ -205,7 +208,7 @@ div.card {
 
 div.card-image {
   width: 100%;
-  height: 230px;
+  height: 340px;
   border-radius: 5px 5px 0 0;
   box-shadow: 2px 2px 2px rgba(126, 126, 126, 0.658);
 }
@@ -213,7 +216,7 @@ div.card-image {
 div.card-image img {
   width: 100%;
   max-width: 100%;
-  height: 230px;
+  height: 340px;
   border-radius: 5px 5px 0 0;
   transition: all 0.3s;
 }
@@ -227,9 +230,62 @@ div.card-description {
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.658);
 }
 
-div.card-description h3 {
-  color: #222222;
+div.card-description h2 {
+  text-align: center;
+  color: #f0f0f0;
   font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  /* background-color: rgb(92, 18, 15); */
+  background-color: rgb(148, 5, 0);
+}
+
+#colorType {
+  text-align: center;
+  color: #f0f0f0;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  background-color: #0d0d0d;
+}
+
+#Action {
+  text-align: center;
+  color: #f0f0f0;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  background-color: #0d0d0d;
+}
+#Comedy {
+  text-align: center;
+  color: #f0f0f0;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  background-color: #ccb63a;
+}
+#Drama {
+  text-align: center;
+  color: #f0f0f0;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  background-color: #095f17;
+}
+
+div.card-description h3 {
+  color: #0d0d0d;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  background-color: rgb(248, 246, 246);
+}
+
+div.card-description h4 {
+  background-color: rgb(248, 246, 246);
+  color: #40010d;
+  font-size: 15px;
   font-weight: 700;
   margin-bottom: 6px;
 }
@@ -249,7 +305,7 @@ div.card-description a {
 
 div.card:hover {
   transform: scale(1.03);
-  box-shadow: 0 10px 30px -5px rgba(10, 16, 34, 0.2);
+  box-shadow: 0 10px 30px -5px #0d0d0d;
 }
 
 div.card-image img:hover {
@@ -257,8 +313,8 @@ div.card-image img:hover {
 }
 
 .fontCard {
-  font-size: 14px;
-  color: rgb(73, 73, 73);
+  font-size: 18px;
+  color: rgb(51, 51, 51);
   font-weight: 300;
 }
 
