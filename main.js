@@ -203,6 +203,28 @@ const showMoviePage = () => {
   $(".b").hide();
 
   //get all data
+  for (let index = 0; index < movies.length; index++) {
+    for (const key in movies[index]) {
+      for (const movie in movies[index][key]) {
+        let e = movies[index][key][movie];
+        const card = $(
+          `<div class="card" id= "card${index}" onclick="changeKey('${e.key}')">  
+          <div class="card-image">
+          <img id="img" src=${movies[index][key][movie].img}></div>
+          <div class="card-description">
+          <h2>${movies[index][key][movie].name}<h2> 
+          <h2 id="${movies[index][key][movie].type}">${movies[index][key][movie].type}</h2>
+          <h3>Date: <span class="fontCard">${movies[index][key][movie].date}</span></h3>
+          <h4>Director:<span class="fontCard"> ${movies[index][key][movie].Director}</span></h4>
+          </div> 
+          </div>`
+        );
+
+        row.append(card);
+      }
+    }
+  }
+  $(".row").show();
 };
 
 //movies Page
