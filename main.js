@@ -151,22 +151,21 @@ const b = $(".b");
 
 // get name card
 const changeKey = (e) => {
+  $(".b").show();
+
   console.log(e);
   localStorage.setItem("movie", e);
   row.hide();
-  // console.log(JSON.parse(e));
 
   $(".card").hide();
+
+  // information movie page
   for (let index = 0; index < movies.length; index++) {
     for (const key in movies[index]) {
       for (const movie in movies[index][key]) {
-        // let e = movies[index][key][movie].key;
-        // let q = localStorage.getItem("movie");
-        // console.log(movie);
-
         if (movie === e) {
           b.html("");
-          const c = $(`<div class="b"">
+          const c = $(`<div class="b">
             <div class="card-image">
             <img id="img" src=${movies[index][key][movie].img}></div>
             <div class="card-description">
@@ -188,28 +187,39 @@ $("#homeNavbar").on("click", function () {
   $(".banner").show();
   $(".column").hide();
   $(".row").hide();
+  $(".b").hide();
 
   $("#homeNavbar").css("color", "rgb(173, 34, 29)");
   $("#moviesNavbar").css("color", "#565950");
   $("#randomNavbar").css("color", "#565950");
 });
-
-//movies Page
-$("#moviesNavbar").on("click", function () {
+const showMoviePage = () => {
   $(".banner").hide();
   $("#homeNavbar").css("color", "#565950");
   $("#randomNavbar").css("color", "#565950");
   $("#moviesNavbar").css("color", "rgb(173, 34, 29)");
   body.css({ marginBottom: "300px" });
   row.html("");
+  $(".b").hide();
 
   //get all data
-  for (let index = 0; index < movies.length; index++) {
-    for (const key in movies[index]) {
-      for (const movie in movies[index][key]) {
-        let e = movies[index][key][movie];
-        const card = $(
-          `<div class="card" id= "card${index}" onclick="changeKey('${e.key}')">  
+};
+
+//movies Page
+$("#moviesNavbar").on("click", showMoviePage);
+
+const filter = (index) => {
+  row.html("");
+
+  if (index == "") {
+    showMoviePage();
+  }
+  //filter categories
+  for (const key in movies[index]) {
+    for (const movie in movies[index][key]) {
+      let e = movies[index][key][movie];
+      const card = $(
+        `<div class="card" id= "card${index}" onclick="changeKey('${e.key}')">  
           <div class="card-image">
           <img id="img" src=${movies[index][key][movie].img}></div>
           <div class="card-description">
@@ -219,19 +229,12 @@ $("#moviesNavbar").on("click", function () {
           <h4>Director:<span class="fontCard"> ${movies[index][key][movie].Director}</span></h4>
           </div> 
           </div>`
-        );
-
-        row.append(card);
-      }
+      );
+      row.append(card);
     }
   }
-  $(".row").show();
-  // $(".b").hide();
-});
+};
 
-//card page
-{
-}
 //random Movie
 $("#randomNavbar").on("click", function () {
   $(".banner").hide();
