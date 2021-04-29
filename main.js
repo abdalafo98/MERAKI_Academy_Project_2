@@ -148,10 +148,12 @@ const movies = [
 const body = $("body");
 const row = $(".row");
 const b = $(".b");
+$("#filter").hide();
 
 // get name card
 const changeKey = (e) => {
   $(".b").show();
+  $("#filter").hide();
 
   console.log(e);
   localStorage.setItem("movie", e);
@@ -160,22 +162,41 @@ const changeKey = (e) => {
   $(".card").hide();
 
   // information movie page
+
   for (let index = 0; index < movies.length; index++) {
     for (const key in movies[index]) {
       for (const movie in movies[index][key]) {
         if (movie === e) {
           b.html("");
-          const c = $(`<div class="b">
-            <div class="card-image">
-            <img id="img" src=${movies[index][key][movie].img}></div>
-            <div class="card-description">
-            <h2>${movies[index][key][movie].name}<h2>
-            <h2 id="${movies[index][key][movie].type}">${movies[index][key][movie].type}</h2>
-            <h3>Date: <span class="fontCard">${movies[index][key][movie].date}</span></h3>
-            <h4>Director:<span class="fontCard"> ${movies[index][key][movie].Director}</span></h4>
-            </div>
-          </div>`);
-          b.append(c);
+          const decMovie = $(`
+          <div class="center">
+          <div class="b">
+          
+    <div class="b">
+    <img height="400px" width="300px" alt="" id="imgDes" src="${movies[index][key][movie].img}">
+ 
+  <div class="b" >
+    <h2 id="${movies[index][key][movie].type}">${movies[index][key][movie].name}</h2>
+    <h4 id="des">Date:<h6>${movies[index][key][movie].date}</h6></h4>
+    <h4 id="des">Type:<h6>${movies[index][key][movie].type}</h6></h4>
+    <h4 id="des">${movies[index][key][movie].rating}</h4>
+    <h4 id="des">${movies[index][key][movie].Director}</h4>
+    <h4 id="des">${movies[index][key][movie].time}</h4>
+  </div>
+          </div>
+          </div> 
+          `);
+          // const c = $(`<div class="b">
+          //   <div class="card-image">
+          //   <img id="img" src=${movies[index][key][movie].img}></div>
+          //   <div class="card-description">
+          //   <h2>${movies[index][key][movie].name}<h2>
+          //   <h2 id="${movies[index][key][movie].type}">${movies[index][key][movie].type}</h2>
+          //   <h3>Date: <span class="fontCard">${movies[index][key][movie].date}</span></h3>
+          //   <h4>Director:<span class="fontCard"> ${movies[index][key][movie].Director}</span></h4>
+          //   </div>
+          // </div>`);
+          b.append(decMovie);
         }
       }
     }
@@ -188,17 +209,26 @@ $("#homeNavbar").on("click", function () {
   $(".column").hide();
   $(".row").hide();
   $(".b").hide();
+  $("#filter").hide();
 
   $("#homeNavbar").css("color", "rgb(173, 34, 29)");
   $("#moviesNavbar").css("color", "#565950");
   $("#randomNavbar").css("color", "#565950");
+  $(".Navbar").css({
+    marginBottom: "5px",
+  });
 });
+
 const showMoviePage = () => {
+  $("#filter").show();
+
   $(".banner").hide();
   $("#homeNavbar").css("color", "#565950");
   $("#randomNavbar").css("color", "#565950");
   $("#moviesNavbar").css("color", "rgb(173, 34, 29)");
-  body.css({ marginBottom: "300px" });
+  $(".Navbar").css({
+    marginBottom: "50px",
+  });
   row.html("");
   $(".b").hide();
 
@@ -261,6 +291,7 @@ const filter = (index) => {
 $("#randomNavbar").on("click", function () {
   $(".banner").hide();
   $(".card").hide();
+  $("#filter").hide();
   $("#randomNavbar").css("color", "goldenrod");
 
   $("#homeNavbar").css("color", "#565950");

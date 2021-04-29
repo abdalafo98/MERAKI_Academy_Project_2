@@ -7,7 +7,7 @@
 }
 
 body {
-  margin-bottom: 62spx;
+  margin-bottom: 62px;
 }
 
 .banner {
@@ -184,9 +184,6 @@ body {
   grid-auto-columns: auto;
   justify-content: center;
 }
-#img {
-}
-
 .row:after {
   content: "";
   display: table;
@@ -208,7 +205,7 @@ div.card {
 
 div.card-image {
   width: 100%;
-  height: 340px;
+  height: 250px;
   border-radius: 5px 5px 0 0;
   box-shadow: 2px 2px 2px rgba(126, 126, 126, 0.658);
 }
@@ -216,7 +213,7 @@ div.card-image {
 div.card-image img {
   width: 100%;
   max-width: 100%;
-  height: 340px;
+  height: 250px;
   border-radius: 5px 5px 0 0;
   transition: all 0.3s;
 }
@@ -322,15 +319,9 @@ div.card-image img:hover {
   overflow: hidden;
 }
 
-.filterDiv {
-  float: left;
-  background-color: #2196f3;
-  color: #ffffff;
-  width: 100px;
-  line-height: 100px;
-  text-align: center;
-  margin: 2px;
-  display: none; /* Hidden by default */
+#filter {
+  margin: auto;
+  width: 97%;
 }
 
 /* The "show" class is added to the filtered elements */
@@ -338,10 +329,7 @@ div.card-image img:hover {
   display: block;
 }
 #myBtnContainer {
-  margin: 0 auto;
-  display: inline-table;
-  justify-content: center;
-  flex-direction: column;
+  margin-left: 100px;
 }
 /* Style the buttons */
 .btn {
@@ -354,14 +342,14 @@ div.card-image img:hover {
 
 /* Add a light grey background on mouse-over */
 .btn:hover {
-  background-color: #ddd;
+  background-color: rgb(233, 227, 227);
 }
 
 /* Add a dark background to the active button */
-.btn.active {
+/* .btn.active {
   background-color: #666;
   color: white;
-}
+} */
 
 .footer {
   text-align: center;
@@ -376,6 +364,57 @@ div.card-image img:hover {
   height: 60px;
   background-color: #494948;
   align-items: center;
+}
+#imgDes {
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: 7px rgb(0, 0, 0);
+  margin-left: 50px;
+}
+
+.des {
+  margin-left: 100px;
+}
+
+#imgDes:hover {
+  border: 1px solid rgb(202, 196, 196);
+  box-shadow: 7px rgb(153, 14, 14);
+}
+
+.center {
+  align-items: center;
+  justify-self: center;
+  margin-right: 400px;
+}
+
+#des {
+  align-items: center;
+  justify-self: center;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+#nameMov {
+  background-color: rgb(153, 14, 14);
+  color: white;
+  align-items: center;
+  justify-self: center;
+  margin-left: 60px;
+  text-align: center;
+}
+.b {
+  font-size: 20px;
+  float: right;
+  align-items: center;
+}
+.child {
+  font-size: 12pt;
+  vertical-align: baseline;
+  margin-right: 20px;
+}
+.super {
+  font-size: 12pt;
+  vertical-align: super;
+  margin-left: 20px;
 }
 
 @media screen and (max-width: 600px) {
