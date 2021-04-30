@@ -248,12 +248,12 @@ $("#filter").hide();
 
 // get name card
 const changeKey = (e) => {
-  $(".b").show();
+  $("continuer").show();
   $("#filter").hide();
-
   console.log(e);
   localStorage.setItem("movie", e);
   row.hide();
+  $(".continuer").hide();
 
   $(".card").hide();
 
@@ -267,7 +267,6 @@ const changeKey = (e) => {
           const decMovie = $(`
           
           
-          <div class="continuer-class">
             <div>
             <img  width="300" height="400" src="${movies[index][key][movie].img}">
             </div>
@@ -286,7 +285,7 @@ const changeKey = (e) => {
             </div>
 
           <div class="continuer-des">
-          <h1 id="${movies[index][key][movie].type}">Description</h1>
+          <h1 id="description">Description</h1>
           <div>${movies[index][key][movie].story}</div>
           <iframe width="300" height="300" id="video"
           src="${movies[index][key][movie].video}">
@@ -300,6 +299,7 @@ const changeKey = (e) => {
       }
     }
   }
+  $(".continuer").show();
 };
 
 //home page
@@ -320,6 +320,7 @@ $("#homeNavbar").on("click", function () {
 
 const showMoviePage = () => {
   $("#filter").show();
+  $(".continuer").hide();
 
   $(".banner").hide();
   $("#homeNavbar").css("color", "#565950");
@@ -329,7 +330,6 @@ const showMoviePage = () => {
     marginBottom: "50px",
   });
   row.html("");
-  $(".b").hide();
 
   //get all data
   for (let index = 0; index < movies.length; index++) {
@@ -391,6 +391,8 @@ $("#randomNavbar").on("click", function () {
   $(".banner").hide();
   $(".card").hide();
   $("#filter").hide();
+  $(".continuer").hide();
+
   $("#randomNavbar").css("color", "goldenrod");
 
   $("#homeNavbar").css("color", "#565950");
