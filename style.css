@@ -244,8 +244,12 @@ div.card-description {
   direction: column;
   margin-right: 60px;
   margin-left: 40px;
-}
-.desmovie {
+  margin-right: 30px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #3f3b37;
+  text-align: center;
+  text-shadow: 4px solid grey;
 }
 
 #video {
@@ -294,6 +298,65 @@ div.card-description h2 {
   border-radius: 20px;
 }
 
+.btn {
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #302f2f;
+  cursor: pointer;
+  border-radius: 20px;
+  color: white;
+}
+.btn1 {
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #17978d;
+  cursor: pointer;
+  border-radius: 20px;
+  color: white;
+}
+
+.btn2 {
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #158d4b;
+  cursor: pointer;
+  border-radius: 20px;
+  color: white;
+}
+
+.btn3 {
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #831234;
+  cursor: pointer;
+  border-radius: 20px;
+  color: white;
+}
+
+.btn4 {
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #0d79a3;
+  cursor: pointer;
+  border-radius: 20px;
+  color: white;
+}
+
 #Action {
   text-align: center;
   color: #f0f0f0;
@@ -314,6 +377,11 @@ div.card-description h2 {
   border-radius: 20px;
 }
 
+#story {
+  font-size: 17px;
+  text-shadow: 3px solid rgb(143, 143, 143);
+}
+
 #Comedy {
   text-align: center;
   color: #f0f0f0;
@@ -332,6 +400,8 @@ div.card-description h2 {
   background-color: #831234;
   border-radius: 20px;
 }
+
+/*  */
 
 #Animation {
   text-align: center;
@@ -404,17 +474,6 @@ div.card-image img:hover {
   margin-left: 100px;
 }
 /* Style the buttons */
-.btn {
-  font-size: 15px;
-  font-weight: 500;
-  border: none;
-  outline: none;
-  padding: 12px 16px;
-  background-color: #302f2f;
-  cursor: pointer;
-  border-radius: 20px;
-  color: white;
-}
 
 .btn:hover {
   background-color: rgb(129, 129, 129);
