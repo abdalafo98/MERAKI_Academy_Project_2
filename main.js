@@ -11,6 +11,9 @@ const movies = [
         Director: "Christopher Nolan",
         img: "images/TheDarkKnight.jpg",
         time: "2h 32min ",
+        story:
+          "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+        video: "youtube.com/watch?v=EXeTwQWrcwY",
       },
 
       TheMountainII: {
@@ -22,6 +25,9 @@ const movies = [
         Director: "Alper Caglar",
         img: "images/TheMountainII.jpg",
         time: "2h 15min ",
+        story:
+          "In a desolate war zone where screams of the innocent echo, seven Maroon Berets will dance with death on the very line between disaster and valor.",
+        video: "https://www.youtube.com/watch?v=L3rDQhwBf0I",
       },
 
       Inception: {
@@ -33,6 +39,9 @@ const movies = [
         Director: "Christopher Nolan",
         img: "images/Inception.jpg",
         time: "2h 28min",
+        story:
+          "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+        video: "https://www.youtube.com/watch?v=YoHD9XEInc0",
       },
 
       TheMatrix: {
@@ -44,6 +53,9 @@ const movies = [
         rating: 8.7,
         img: "images/TheMatrix.jpg",
         time: "2h 28min",
+        story:
+          "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.",
+        video: "https://www.youtube.com/watch?v=vKQi3bBA1y8",
       },
     },
   },
@@ -59,6 +71,9 @@ const movies = [
         Director: "Bong Joon Ho",
         img: "images/Parasite.jpg",
         time: " 2h 12min",
+        story:
+          "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
+        video: "https://www.youtube.com/watch?v=SEUXfv87Wpk",
       },
 
       LifeIsBeautiful: {
@@ -70,6 +85,9 @@ const movies = [
         Director: "Roberto Benigni",
         img: "./images/LifeIsBeautifulLifeIsBeautiful.jpg",
         time: "1h 56min",
+        story:
+          "When an open-minded Jewish librarian and his son become victims of the Holocaust, he uses a perfect mixture of will, humor, and imagination to protect his son from the dangers around their camp.",
+        video: "https://www.youtube.com/watch?v=pAYEQP8gx3w",
       },
 
       TheIntouchables: {
@@ -81,6 +99,9 @@ const movies = [
         Director: "Olivier Nakache,",
         img: "./images/OlivierNakache.jpg",
         time: "1h 52min",
+        story:
+          "After he becomes a quadriplegic from a paragliding accident, an aristocrat hires a young man from the projects to be his caregiver.",
+        video: "https://www.youtube.com/watch?v=34WIbmXkewU",
       },
 
       BacktotheFuture: {
@@ -92,6 +113,9 @@ const movies = [
         Director: "Robert Zemeckis",
         img: "./images/Backtotheutre.jpg",
         time: " 2h 12min",
+        story:
+          "Marty McFly, a 17-year-old high school student, is accidentally sent thirty years into the past in a time-traveling DeLorean invented by his close friend, the eccentric scientist Doc Brown.",
+        video: "https://www.youtube.com/watch?v=qvsgGtivCgs",
       },
     },
   },
@@ -107,6 +131,9 @@ const movies = [
         Director: "Francis Ford",
         img: "images/TheGodfather.jpg",
         time: "2h 55min",
+        story:
+          "An organized crime dynasty's aging patriarch transfers control of his clandestine empire to his reluctant son.",
+        video: "https://www.youtube.com/watch?v=sY1S34973zA",
       },
 
       AngryMen: {
@@ -118,6 +145,9 @@ const movies = [
         Director: "Sidney Lumet",
         img: "images/12AngryMen.jpg",
         time: " 1h 36min ",
+        story:
+          "A jury holdout attempts to prevent a miscarriage of justice by forcing his colleagues to reconsider the evidence.",
+        video: "https://www.youtube.com/watch?v=_13J_9B5jEk",
       },
 
       Interstellar: {
@@ -129,6 +159,9 @@ const movies = [
         Director: "Christopher Nolan",
         img: "images/Interstellar.jpg",
         time: "2h 49min",
+        story:
+          "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+        video: "https://www.youtube.com/watch?v=Lm8p5rlrSkY",
       },
 
       Hamilton: {
@@ -140,6 +173,69 @@ const movies = [
         Director: "Thomas Kail",
         img: "images/Hamilton.jpg",
         time: "2h 49min",
+        story:
+          "The real life of one of America's foremost founding fathers and first Secretary of the Treasury, Alexander Hamilton. Captured live on Broadway from the Richard Rodgers Theater with the original Broadway cast.",
+        video: "https://www.youtube.com/watch?v=67CaQADkPho",
+      },
+    },
+  },
+
+  {
+    animation: {
+      YourName: {
+        key: "YourName",
+        name: "Your Name.",
+        date: "7 April 2017",
+        type: "Animation",
+        rating: 8.4,
+        Director: "Makoto Shinkai",
+        img: "images/YourName.jpg",
+        time: "1h 46min",
+        story:
+          "Two strangers find themselves linked in a bizarre way. When a connection forms, will distance be the only thing to keep them apart?",
+        video: "https://www.youtube.com/watch?v=xU47nhruN-Q",
+      },
+
+      coco: {
+        key: "coco",
+        name: "Coco",
+        date: "22 November 2017",
+        type: "Animation",
+        rating: 8.4,
+        Director: "Lee Unkrich",
+        img: "images/Coco.jpg",
+        time: "1h 45min",
+        story:
+          "Aspiring musician Miguel, confronted with his family's ancestral ban on music, enters the Land of the Dead to find his great-great-grandfather, a legendary singer.",
+        video: "https://www.youtube.com/watch?v=5sSMRg1X1vg",
+      },
+
+      Soul: {
+        key: "Soul",
+        name: "Soul",
+        date: "25 December 2020",
+        type: "Animation",
+        rating: 8.1,
+        Director: "Pete Docter",
+        img: "images/Soul.jpg",
+        time: "1h 40min",
+        story:
+          "After landing the gig of a lifetime, a New York jazz pianist suddenly finds himself trapped in a strange land between Earth and the afterlife.",
+        video: "https://www.youtube.com/watch?v=xOsLIiBStEs",
+      },
+
+      Monsters: {
+        key: "Monsters",
+        name: "Monsters, Inc.",
+        date: "2 November 2001",
+        type: "Animation",
+        rating: 8.1,
+        Director: "Pete Docter",
+        img: "images/Monsters.jpg",
+        time: "1h 32min",
+        story:
+          "In order to power the city, monsters have to scare children so that they scream. However, the children are toxic to the monsters, and after a child gets through, two monsters realize things may not be what they think.",
+        video: "https://www.youtube.com/watch?v=CGbgaHoapFM",
       },
     },
   },
@@ -147,7 +243,7 @@ const movies = [
 
 const body = $("body");
 const row = $(".row");
-const b = $(".b");
+const continuer = $(".continuer");
 $("#filter").hide();
 
 // get name card
@@ -167,30 +263,39 @@ const changeKey = (e) => {
     for (const key in movies[index]) {
       for (const movie in movies[index][key]) {
         if (movie === e) {
-          b.html("");
+          continuer.html("");
           const decMovie = $(`
-          <div class="b">
-    <div class="b">
-    <img height="400px" width="300px" alt="" id="imgDes" src="${movies[index][key][movie].img}">
-  <div class="c" >
-  
-    <p id="${movies[index][key][movie].type}">${movies[index][key][movie].name}</p>
-    <p id="des"><img src="./images/star.png" width="25" height="25" alt="star">
-    <b>${movies[index][key][movie].rating}</b></p>
-    <p id="des"><b>Date: </b>${movies[index][key][movie].date}</p>
-    <p id="des"><b>Type: </b>${movies[index][key][movie].type}</p>
+          
+          
+          <div class="continuer-class">
+            <div>
+            <img  width="300" height="400" src="${movies[index][key][movie].img}">
+            </div>
+            <div class="desmovie">
+                 <p id="${movies[index][key][movie].type}">${movies[index][key][movie].name}</p>
+     <p  id="des"><img src="./images/star.png" width="25" height="25" alt="star">
+     <b>${movies[index][key][movie].rating}</b></p>
+     <p id="des"><b>Date: </b>${movies[index][key][movie].date}</p>
+     <p id="des"><b>Type: </b>${movies[index][key][movie].type}</p>
 
-    <p id="des"><b>Director: </b>${movies[index][key][movie].Director}</p>
-    <p id="des"><b>Time: </b>${movies[index][key][movie].time}</p>
-  </div></div></div>
-  
-  <div class="desMovie'>
+     <p id="des" ><b>Director: </b>${movies[index][key][movie].Director}</p>
+     <p id="des" ><b>Time: </b>${movies[index][key][movie].time}</p>
+     <div><button onclick="" id="favBtn">Favirete</button> </div>
 
-  </div
-  
-  `);
+            </div>
+            </div>
 
-          b.append(decMovie);
+          <div class="continuer-des">
+          <h1 id="${movies[index][key][movie].type}">Description</h1>
+          <div>${movies[index][key][movie].story}</div>
+          <iframe width="300" height="300" id="video"
+          src="${movies[index][key][movie].video}">
+          </iframe>
+        
+        
+          `);
+
+          continuer.append(decMovie);
         }
       }
     }
@@ -202,7 +307,7 @@ $("#homeNavbar").on("click", function () {
   $(".banner").show();
   $(".column").hide();
   $(".row").hide();
-  $(".b").hide();
+  // $(".continuer").hide();
   $("#filter").hide();
 
   $("#homeNavbar").css("color", "rgb(173, 34, 29)");
@@ -291,3 +396,30 @@ $("#randomNavbar").on("click", function () {
   $("#homeNavbar").css("color", "#565950");
   $("#moviesNavbar").css("color", "#565950");
 });
+
+const favireteButton = (index) => {
+  let movies = localStorage.getItem("movie");
+  let localStorageMovie = localStorage.setItem("favMovie", movies);
+  let favMovies = [];
+
+  for (const key in movies[index]) {
+    for (const movie in movies[index][localStorageMovie]) {
+      let e = movies[index][key][movie];
+      if (a) {
+        favMovies.push(movies[index]);
+      }
+    }
+  }
+  // const card = $(
+  //   `<div class="card" id= "card${index}" onclick="changeKey('${e.key}')">
+  //     <div class="card-image">
+  //     <img id="img" src=${movies[index][key][movie].img}></div>
+  //     <div class="card-description">
+  //     <h2>${movies[index][key][movie].name}<h2>
+  //     <h2 id="${movies[index][key][movie].type}">${movies[index][key][movie].type}</h2>
+  //     <h3>Date: <span class="fontCard">${movies[index][key][movie].date}</span></h3>
+  //     <h4>Director:<span class="fontCard"> ${movies[index][key][movie].Director}</span></h4>
+  //     </div>
+  //     </div>`
+  // );
+};

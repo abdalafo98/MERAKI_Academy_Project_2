@@ -10,7 +10,7 @@
       integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
       crossorigin="anonymous"
     ></script>
-    <title>Document</title>
+    <title>BestMovies</title>
   </head>
   <body>
     
@@ -31,16 +31,19 @@
         <p>Take Quizzes Now</p>
         <div>
           <a href="#row">
-            <button type="button" class="button1">Join Now</button></a
+            <button type="button" class="button1" onclick="showMoviePage()">Join Now</button></a
           >
         </div>
       </div>
     </div>
     <div id="filter">
-      <button class="btn active" onclick="filter('')" > Show all</button>
+      <button class="btn active" onclick="filter('')" >All</button>
       <button class="btn" onclick="filter('0')"> Action</button>
       <button class="btn" onclick="filter('1')"> Comedy</button>
       <button class="btn" onclick="filter('2')"> Drama</button>
+      <button class="btn" onclick="filter('3')"> Animation</button>
+
+      
     </div>
     <div class="moviess">
     <div class="row" id="row">
@@ -48,8 +51,9 @@
     </div>
 
 
-    <div class="b">
+    <div class="continuer">
     </div>
+    
 
       <div class="footer">
         <p>Copyright &#169 2021 All Rights Reserved By Best<span class="spanColor">Movies</span></p>
