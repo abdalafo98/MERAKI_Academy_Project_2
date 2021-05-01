@@ -208,6 +208,17 @@ div.card {
   width: 80%;
 }
 
+.cont-favPage {
+  margin-right: 60px;
+  margin-left: 100px;
+  box-sizing: border-box;
+
+  display: flex;
+  direction: row;
+  margin: auto;
+  width: 80%;
+}
+
 .titlePageFav {
   justify-content: center;
   text-align: center;
@@ -248,15 +259,6 @@ div.card-description {
   margin-bottom: 0px;
 }
 .continuer {
-  margin-right: 60px;
-  margin-left: 100px;
-  box-sizing: border-box;
-
-  display: flex;
-  direction: row;
-}
-
-.cont-favPage {
   margin-right: 60px;
   margin-left: 100px;
   box-sizing: border-box;

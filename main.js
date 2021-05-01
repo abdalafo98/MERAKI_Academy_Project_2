@@ -257,7 +257,7 @@ const changeKey = (e) => {
   row.hide();
   $(".continuer").hide();
   $(".titlePageFav").hide();
-
+  $(".cont-favPage").hide();
   $(".card").hide();
 
   // information movie page
@@ -366,6 +366,7 @@ const filter = (index) => {
     }
   }
 };
+
 let favMovies = [];
 let counterFav = 0;
 const favNavNum = document.querySelector("#favNavNum");
@@ -392,6 +393,8 @@ const favireteButton = (e) => {
 };
 
 const onClickFav = (e) => {
+  let getDataFav = JSON.parse(localStorage.getItem("favMovie"));
+
   $("#filter").hide();
   console.log(e);
   localStorage.setItem("fav", e);
@@ -405,31 +408,33 @@ const onClickFav = (e) => {
   $(".continuer").hide();
   $("#filter").hide();
   $(".titlePageFav").hide();
-
+  $(".Navbar").css({
+    marginBottom: "30px",
+  });
   // information movie page
 
-  for (let index = 0; index < favMovies.length; index++) {
+  for (let index = 0; index < getDataFav.length; index++) {
     contFavPage.html("");
     const decMovie = $(`
           <div class="con-des">
-          <img  width="300" height="400" src="${favMovies[index].img}">
+          <img  width="300" height="400" src="${getDataFav[index].img}">
           </div>
           <div class="desmovie">
-          <p id="${favMovies[index].type}">${favMovies[index].name}</p>
+          <p id="${getDataFav[index].type}">${getDataFav[index].name}</p>
           <p  class="des"><img src="./images/star.png" width="25" height="25" alt="star">
-          <b>${favMovies[index].rating}</b></p>
-          <p class="des"><b>Date: </b>${favMovies[index].date}</p>
-          <p class="des"><b>Type: </b>${favMovies[index].type}</p>
-          <p class="des" ><b>Director: </b>${favMovies[index].Director}</p>
-          <p class="des" ><b>Time: </b>${favMovies[index].time}</p>
+          <b>${getDataFav[index].rating}</b></p>
+          <p class="des"><b>Date: </b>${getDataFav[index].date}</p>
+          <p class="des"><b>Type: </b>${getDataFav[index].type}</p>
+          <p class="des" ><b>Director: </b>${getDataFav[index].Director}</p>
+          <p class="des" ><b>Time: </b>${getDataFav[index].time}</p>
           <h2 class="des">Description:</h2>
-          <div class="des">${favMovies[index].story}</div>
+          <div class="des">${getDataFav[index].story}</div>
          
           <div><button id="deleteButton" onclick="DeleteButton('${index}')">Delete</button> </div></div></div>
           <div class="continuer-des">
 
           <iframe id="video" width="400" height="300"
-          src="${favMovies[index].video}"
+          src="${getDataFav[index].video}"
            frameborder="0" allowFullScreen></iframe>
            </div>
           `);
@@ -440,15 +445,20 @@ const onClickFav = (e) => {
 };
 
 const DeleteButton = (index) => {
-  favMovies.splice(index, 1);
-  favNavNum.innerText = counterFav -= 1;
+  let getDataFav = JSON.parse(localStorage.getItem("favMovie"));
 
-  // $(".FavPage").show();
-  $(".continuer").hide();
-
-  $(".cont-favPage").hide();
   $(".titlePageFav").show();
   $(".FavPage").show();
+
+  if (counterFav > 0) {
+    favNavNum.innerText = counterFav -= 1;
+    getDataFav.splice(index, 1);
+  }
+
+  $(".continuer").hide();
+  $(".cont-favPage").hide();
+
+  // localStorage.setItem("counterFav", counterFav);
 };
 
 ///??????????????????
@@ -486,7 +496,10 @@ $("#homeNavbar").on("click", () => {
 $("#moviesNavbar").on("click", showMoviePage);
 
 // favorite page
+
 $("#favoriteNavbar").on("click", () => {
+  let getDataFav = JSON.parse(localStorage.getItem("favMovie"));
+
   $(".titlePageFav").show();
   $("FavPage").show();
   $(".banner").hide();
@@ -504,16 +517,17 @@ $("#favoriteNavbar").on("click", () => {
 
   const FavPage = $(".FavPage");
   FavPage.html("");
-  for (let index = 0; index < favMovies.length; index++) {
+  console.log();
+  for (let index = 0; index < getDataFav.length; index++) {
     const card = $(
       `<div class="card" onclick="onClickFav('${index}')">  
           <div class="card-image">
-          <img id="img" src=${favMovies[index].img}></div>
+          <img id="img" src=${getDataFav[index].img}></div>
           <div class="card-description">
-          <h2>${favMovies[index].name}<h2> 
-          <h2 id="${favMovies[index].type}">${favMovies[index].type}</h2>
-          <h3>Date: <span class="fontCard">${favMovies[index].date}</span></h3>
-          <h4>Director:<span class="fontCard"> ${favMovies[index].Director}</span></h4>
+          <h2>${getDataFav[index].name}<h2> 
+          <h2 id="${getDataFav[index].type}">${getDataFav[index].type}</h2>
+          <h3>Date: <span class="fontCard">${getDataFav[index].date}</span></h3>
+          <h4>Director:<span class="fontCard"> ${getDataFav[index].Director}</span></h4>
           </div> 
           </div>`
     );
