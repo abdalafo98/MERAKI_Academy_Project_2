@@ -343,16 +343,6 @@ div.card-description h2 {
   border-radius: 15px;
 }
 
-#colorType {
-  text-align: center;
-  color: #f0f0f0;
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 6px;
-  background-color: #0d0d0d;
-  border-radius: 20px;
-}
-
 .btn {
   font-size: 15px;
   font-weight: 500;
