@@ -305,6 +305,7 @@ const body = $("body");
 const row = $(".row");
 const continuer = $(".continuer");
 const contFavPage = $(".cont-favPage");
+const randomDiv = $(".random-div");
 $("#filter").hide();
 $(".titlePageFav").hide();
 const favNavNum = document.querySelector("#favNavNum");
@@ -314,7 +315,6 @@ favNavNum.innerText = localStorage.getItem("counterFav");
 const changeKey = (e) => {
   $("continuer").show();
   $("#filter").hide();
-  console.log(e);
   localStorage.setItem("movie", e);
   row.hide();
   $(".continuer").hide();
@@ -371,8 +371,7 @@ const showMoviePage = () => {
   $("#homeNavbar").css("color", "#565950");
   $("#moviesNavbar").css("color", "goldenrod");
   $(".titlePageFav").hide();
-  $("#randomNavbar").hide();
-
+  $(".random-div").hide();
   $(".Navbar").css({
     marginBottom: "20px",
   });
@@ -460,7 +459,6 @@ const onClickFav = (e) => {
   let getDataFav = JSON.parse(localStorage.getItem("favMovie"));
 
   $("#filter").hide();
-  console.log(e);
   localStorage.setItem("fav", e);
   row.hide();
   $(".continuer").hide();
@@ -472,6 +470,7 @@ const onClickFav = (e) => {
   $(".continuer").hide();
   $("#filter").hide();
   $(".titlePageFav").hide();
+  $(".random-div").hide();
   $(".Navbar").css({
     marginBottom: "30px",
   });
@@ -529,11 +528,9 @@ const DeleteButton = (index) => {
   $(".continuer").hide();
   $(".cont-favPage").hide();
   favNavNum.innerText = localStorage.getItem("counterFav");
-
-  // localStorage.setItem("counterFav", counterFav);
 };
 
-///??????????????????
+//get random movie
 const randomMovie = () => {
   let index = Math.floor(Math.random() * movies.length);
   let index1 = Object.keys(movies[index])[
@@ -543,7 +540,7 @@ const randomMovie = () => {
     Math.floor(Math.random() * Object.keys(movies[index][index1]).length)
   ];
 
-  contFavPage.html("");
+  randomDiv.html("");
   const decMovie = $(`
         <div class="con-des">
         <img  width="300" height="400" src="${movies[index][index1][index2].img}">
@@ -557,22 +554,17 @@ const randomMovie = () => {
         <p class="des" ><b>Director: </b>${movies[index][index1][index2].Director}</p>
         <p class="des" ><b>Time: </b>${movies[index][index1][index2].time}</p>
         <h2 class="des">Description:</h2>
-        <div class="des">${movies[index][index1][index2].story}</div>
-       
-        <div><button id="deleteButton" onclick="DeleteButton('${index}')">Delete</button> </div></div></div>
+        <div class="des">${movies[index][index1][index2].story}</div></div></div>
         <div class="continuer-des">
-
         <iframe id="video" width="400" height="300"
         src="${movies[index][index1][index2].video}"
          frameborder="0" allowFullScreen></iframe>
          </div>
         `);
 
-  contFavPage.append(decMovie);
+  randomDiv.append(decMovie);
 
-  contFavPage.show();
-
-  s;
+  randomDiv.show();
 };
 
 //home page
@@ -586,8 +578,7 @@ $("#homeNavbar").on("click", () => {
   $(".titlePageFav").hide();
   $(".cont-favPage").hide();
   $(".titlePageFav").hide();
-  $("#randomNavbar").hide();
-
+  $(".random-div").hide();
   $("#homeNavbar").css("color", "goldenrod");
   $("#moviesNavbar").css("color", "#565950");
   $(".Navbar").css({
@@ -610,7 +601,7 @@ $("#favoriteNavbar").on("click", () => {
   $("#filter").hide();
   $(".continuer").hide();
   $(".cont-favPage").hide();
-  $("#randomNavbar").hide();
+  $(".random-div").hide();
   $(".Navbar").css({
     marginBottom: "0px",
   });
@@ -648,8 +639,6 @@ $("#randomNavbar").on("click", () => {
   $(".continuer").hide();
   $(".FavPage").hide();
   $(".titlePageFav").hide();
-  $(".cont-favPage").hide();
-
   $("#homeNavbar").css("color", "#565950");
   $("#moviesNavbar").css("color", "#565950");
 

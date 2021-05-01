@@ -224,6 +224,16 @@ div.card {
   margin: auto;
   width: 80%;
 }
+.random-div {
+  margin-right: 60px;
+  margin-left: 100px;
+  box-sizing: border-box;
+
+  display: flex;
+  direction: row;
+  margin: auto;
+  width: 80%;
+}
 
 .titlePageFav {
   justify-content: center;
@@ -264,6 +274,7 @@ div.card-description {
   box-shadow: goldenrod;
   margin-bottom: 0px;
 }
+
 .continuer {
   margin-right: 60px;
   margin-left: 100px;
