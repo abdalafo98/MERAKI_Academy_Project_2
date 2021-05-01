@@ -19,14 +19,14 @@
       <ul>
         <li id="homeNavbar" class="color">Home</li>
         <li id="moviesNavbar" >Movies</li>
-        <li id="favoriteNavbar" >Favorite</li>
-        <li id="randomNavbar">Random Movie</li>
+        <li id="favoriteNavbar" >Favorite <span id="favNavNum">0</span></li>
+        <li id="randomNavbar">Random Movie <img src="./images/random.png" width="20" height="20" alt=""></li>
       </ul>
     </div>
 
     <div class="banner">
       <div class="content">
-        <h1>Test your programming knowledge</h1>
+        <h1 class="bestMovie">Best Movies Rating </h1>
         <p>Our mission is to your test to improve your abilities</p>
         <p>Take Quizzes Now</p>
         <div>
@@ -38,10 +38,10 @@
     </div>
     <div id="filter">
       <button class="btn active" onclick="filter('')" >All</button>
-      <button class="btn1" onclick="filter('0')"> Action</button>
-      <button class="btn2" onclick="filter('1')"> Comedy</button>
-      <button class="btn3" onclick="filter('2')"> Drama</button>
-      <button class="btn4" onclick="filter('3')"> Animation</button>
+      <button class="btn" onclick="filter('0')"> Action</button>
+      <button class="btn" onclick="filter('1')"> Comedy</button>
+      <button class="btn" onclick="filter('2')"> Drama</button>
+      <button class="btn" onclick="filter('3')"> Animation</button>
 
       
     </div>
@@ -53,8 +53,10 @@
 
     <div class="continuer">
     </div>
+  <h1 class="titlePageFav">Your Favorite <img src="./images/fav.png" width="30" height="30"> </h1>
     
-<div class="FavPage"></div>
+<div class="FavPage">
+</div>
       <div class="footer">
         <p>Copyright &#169 2021 All Rights Reserved By Best<span class="spanColor">Movies</span></p>
     </div>

@@ -51,7 +51,7 @@ body {
 }
 
 .logo {
-  margin: 30px 30px 30px 50px;
+  margin: 30px 30px 30px 153px;
   cursor: pointer;
   color: #220208;
   text-shadow: 2px 2px 2px rgba(99, 98, 98, 0.37);
@@ -202,9 +202,26 @@ div.card {
   flex-grow: 1;
 }
 
+.FavPage {
+  margin: auto;
+  width: 80%;
+}
+
+.titlePageFav {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-top: 10px;
+  background-color: goldenrod;
+  color: white;
+}
+.bestMovie {
+  color: rgb(24, 23, 23);
+}
+
 div.card-image {
   width: 100%;
-  height: 250px;
+  height: 300px;
   border-radius: 5px 5px 0 0;
   box-shadow: 2px 2px 2px rgba(126, 126, 126, 0.658);
 }
@@ -212,7 +229,7 @@ div.card-image {
 div.card-image img {
   width: 100%;
   max-width: 100%;
-  height: 250px;
+  height: 300px;
   border-radius: 5px 5px 0 0;
   transition: all 0.3s;
 }
@@ -225,10 +242,13 @@ div.card-description {
   padding: 25px;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.658);
 }
-
+.con-des {
+  box-shadow: goldenrod;
+  margin-bottom: 0px;
+}
 .continuer {
   margin-right: 60px;
-  margin-left: 40px;
+  margin-left: 100px;
   box-sizing: border-box;
 
   display: flex;
@@ -256,10 +276,12 @@ div.card-description {
   /* margin: 0 auto; */
   position: relative;
   margin-top: 20px;
+  margin-left: 40px;
 }
 
 #favBtn {
-  margin-top: 125px;
+  margin-left: 160px;
+  margin-bottom: 15px;
   border: none;
   position: relative;
   left: 100px;
@@ -304,54 +326,7 @@ div.card-description h2 {
   border: none;
   outline: none;
   padding: 12px 16px;
-  background-color: #302f2f;
-  cursor: pointer;
-  border-radius: 20px;
-  color: white;
-}
-.btn1 {
-  font-size: 15px;
-  font-weight: 500;
-  border: none;
-  outline: none;
-  padding: 12px 16px;
-  background-color: #17978d;
-  cursor: pointer;
-  border-radius: 20px;
-  color: white;
-}
-
-.btn2 {
-  font-size: 15px;
-  font-weight: 500;
-  border: none;
-  outline: none;
-  padding: 12px 16px;
-  background-color: #158d4b;
-  cursor: pointer;
-  border-radius: 20px;
-  color: white;
-}
-
-.btn3 {
-  font-size: 15px;
-  font-weight: 500;
-  border: none;
-  outline: none;
-  padding: 12px 16px;
-  background-color: #831234;
-  cursor: pointer;
-  border-radius: 20px;
-  color: white;
-}
-
-.btn4 {
-  font-size: 15px;
-  font-weight: 500;
-  border: none;
-  outline: none;
-  padding: 12px 16px;
-  background-color: #0d79a3;
+  background-color: rgb(22, 32, 34);
   cursor: pointer;
   border-radius: 20px;
   color: white;
@@ -369,11 +344,10 @@ div.card-description h2 {
 
 #description {
   text-align: center;
-  color: #f0f0f0;
-  font-size: 18px;
+  color: #000000;
+  font-size: 30px;
   font-weight: 700;
   margin-bottom: 6px;
-  background-color: goldenrod;
   border-radius: 20px;
 }
 
@@ -440,6 +414,19 @@ div.card-description a {
   text-decoration: none;
   text-transform: uppercase;
 }
+#randomNavbar {
+  background-color: rgb(42, 179, 76);
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+}
+
+#randomNavbar:hover {
+  background-color: rgb(19, 216, 68);
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+}
 
 div.card:hover {
   transform: scale(1.03);
@@ -476,11 +463,16 @@ div.card-image img:hover {
 /* Style the buttons */
 
 .btn:hover {
-  background-color: rgb(129, 129, 129);
+  background-color: rgb(114, 114, 114);
 }
 
-/* ///////////////////////////////////////////// */
-
+#favNavNum {
+  background-color: white;
+  color: rgb(100, 99, 99);
+  padding-left: 3px;
+  padding-right: 3px;
+  border-radius: 10px;
+}
 .footer {
   text-align: center;
   font-size: 15px;
@@ -512,10 +504,12 @@ div.card-image img:hover {
   margin-left: 400px;
 }
 
-#des {
+.des {
   width: 350px;
   padding-left: 10px;
   margin-bottom: 15px;
+  font-family: cursive;
+  background-color: rgb(253, 252, 252);
 }
 
 #nameMov {
@@ -552,6 +546,17 @@ div.card-image img:hover {
   font-size: 12pt;
   vertical-align: super;
   margin-left: 20px;
+}
+
+#favoriteNavbar {
+  background-color: goldenrod;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#favoriteNavbar:hover {
+  background-color: rgb(250, 189, 35);
 }
 
 @media screen and (max-width: 600px) {
