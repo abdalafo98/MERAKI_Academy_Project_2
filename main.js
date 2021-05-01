@@ -244,6 +244,7 @@ const movies = [
 const body = $("body");
 const row = $(".row");
 const continuer = $(".continuer");
+const contFavPage = $(".cont-favPage");
 $("#filter").hide();
 
 // get name card
@@ -254,6 +255,7 @@ const changeKey = (e) => {
   localStorage.setItem("movie", e);
   row.hide();
   $(".continuer").hide();
+  $(".titlePageFav").hide();
 
   $(".card").hide();
 
@@ -370,7 +372,12 @@ const favireteButton = (e) => {
   for (let index = 0; index < movies.length; index++) {
     for (const key in movies[index]) {
       for (const movie in movies[index][key]) {
-        // if (!favMovies[index].hasOwnProperty(favMovies[index][e])) {
+        // if (
+        //   !(
+        //     movies.hasOwnProperty(movies[index][key][movie]) ===
+        //     favMovies.indexOf(movies[index][key][movie].key)
+        //   )
+        // ) {
         if (movie === e) {
           favNavNum.innerText = counterFav += 1;
           // $("#favNavNum").val(`${(counterFav = +1)}`);
@@ -378,35 +385,77 @@ const favireteButton = (e) => {
         }
       }
     }
-    // }
   }
+  // }
   localStorage.setItem("favMovie", JSON.stringify(favMovies));
 };
 
-const onClickFav = () => {
-  for (let index = 0; index < movies.length; index++) {
-    const card = $(
-      `<div class="card" id= "card${index}" onclick="changeKey('${""}')">  
-      <div class="card-image">
-      <img id="img" src=${movies[index].img}></div>
-      <div class="card-description">
-      <h2>${movies[index][key][movie].name}<h2> 
-      <h2 id="${movies[index][key][movie].type}">${
-        movies[index][key][movie].type
-      }</h2>
-      <h3>Date: <span class="fontCard">${
-        movies[index][key][movie].date
-      }</span></h3>
-      
-      <h4>Director:<span class="fontCard"> ${
-        movies[index][key][movie].Director
-      }</span></h4>
-      </div> 
-      </div>`
-    );
+const onClickFav = (e) => {
+  $("#filter").hide();
+  console.log(e);
+  localStorage.setItem("fav", e);
+  row.hide();
+  $(".continuer").hide();
+  const contFavPage = $(".cont-favPage");
+  $(".card").hide();
+  $(".banner").hide();
+  $(".column").hide();
+  $(".row").hide();
+  $(".continuer").hide();
+  $("#filter").hide();
+  $(".FavPage").hide();
+  $(".titlePageFav").hide();
 
-    row.append(card);
+  // information movie page
+
+  for (let index = 0; index < favMovies.length; index++) {
+    contFavPage.html("");
+    const decMovie = $(`
+          <div class="con-des">
+          <img  width="300" height="400" src="${favMovies[index].img}">
+          </div>
+          <div class="desmovie">
+          <p id="${favMovies[index].type}">${favMovies[index].name}</p>
+          <p  class="des"><img src="./images/star.png" width="25" height="25" alt="star">
+          <b>${favMovies[index].rating}</b></p>
+          <p class="des"><b>Date: </b>${favMovies[index].date}</p>
+          <p class="des"><b>Type: </b>${favMovies[index].type}</p>
+          <p class="des" ><b>Director: </b>${favMovies[index].Director}</p>
+          <p class="des" ><b>Time: </b>${favMovies[index].time}</p>
+          <h2 class="des">Description:</h2>
+          <div class="des">${favMovies[index].story}</div>
+         
+          <div><button id="deleteButton" onclick="DeleteButton('${index}')">Delete</button> </div></div></div>
+          <div class="continuer-des">
+
+          <iframe id="video" width="400" height="300"
+          src="${favMovies[index].video}"
+           frameborder="0" allowFullScreen></iframe>
+           </div>
+          `);
+
+    contFavPage.append(decMovie);
   }
+  contFavPage.show();
+};
+
+const DeleteButton = (index) => {
+  $(".FavPage").show();
+
+  favMovies.splice(index, 1);
+  favNavNum.innerText = counterFav -= 1;
+
+  // $(".FavPage").show();
+  $(".titlePageFav").hide();
+  $(".continuer").hide();
+
+  $(".cont-favPage").hide();
+  $(".titlePageFav").show();
+};
+
+const randomMovie = [];
+const randomMovie = () => {
+  var index = Math.floor(Math.random() * movies.length);
 };
 
 //home page
@@ -417,6 +466,8 @@ $("#homeNavbar").on("click", () => {
   $(".continuer").hide();
   $("#filter").hide();
   $(".FavPage").hide();
+  $(".titlePageFav").hide();
+  $(".cont-favPage").hide();
   $(".titlePageFav").hide();
 
   $("#homeNavbar").css("color", "goldenrod");
@@ -437,6 +488,7 @@ $("#favoriteNavbar").on("click", () => {
   $(".card").hide();
   $("#filter").hide();
   $(".continuer").hide();
+  $(".cont-favPage").hide();
 
   $(".Navbar").css({
     marginBottom: "0px",
@@ -449,7 +501,7 @@ $("#favoriteNavbar").on("click", () => {
   FavPage.html("");
   for (let index = 0; index < favMovies.length; index++) {
     const card = $(
-      `<div class="card" onclick="">  
+      `<div class="card" onclick="onClickFav('${index}')">  
           <div class="card-image">
           <img id="img" src=${favMovies[index].img}></div>
           <div class="card-description">
@@ -474,6 +526,7 @@ $("#randomNavbar").on("click", () => {
   $(".continuer").hide();
   $(".FavPage").hide();
   $(".titlePageFav").hide();
+  $(".cont-favPage").hide();
 
   $("#homeNavbar").css("color", "#565950");
   $("#moviesNavbar").css("color", "#565950");

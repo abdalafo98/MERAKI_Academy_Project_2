@@ -255,6 +255,15 @@ div.card-description {
   direction: row;
 }
 
+.cont-favPage {
+  margin-right: 60px;
+  margin-left: 100px;
+  box-sizing: border-box;
+
+  display: flex;
+  direction: row;
+}
+
 .continuer-class {
   display: flex;
   direction: row;
@@ -294,7 +303,27 @@ div.card-description {
 }
 
 #favBtn:hover {
-  background-color: rgb(184, 211, 86);
+  background-color: rgb(247, 187, 35);
+  color: white;
+  cursor: pointer;
+}
+
+#deleteButton {
+  margin-left: 160px;
+  margin-bottom: 15px;
+  border: none;
+  position: relative;
+  left: 100px;
+  background-color: rgb(233, 35, 35);
+  padding: 15px 30px 15px 30px;
+  border-radius: 20px;
+  color: white;
+  font-size: 20px;
+  box-shadow: 1px solid rgb(143, 143, 143);
+}
+
+#deleteButton:hover {
+  background-color: rgb(226, 36, 36);
   color: white;
   cursor: pointer;
 }
