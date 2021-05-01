@@ -379,10 +379,17 @@ const favireteButton = (e) => {
           localStorage.clear("favMovie");
           favNavNum.innerText = localStorage.setItem("counterFav", 0);
         }
-
-        if (movie === e) {
-          counterFav++;
-          favMovies.push(movies[index][key][movie]);
+        if (
+          !(
+            movies.includes(movies[index][key][movie]) ===
+            favMovies.indexOf(movies[index][key][movie])
+          )
+        ) {
+          if (movie === e) {
+            counterFav++;
+            // $("#favNavNum").val(`${(counterFav = +1)}`);
+            favMovies.push(movies[index][key][movie]);
+          }
         }
       }
     }
@@ -465,6 +472,50 @@ const DeleteButton = (index) => {
   $(".continuer").hide();
   $(".cont-favPage").hide();
   favNavNum.innerText = localStorage.getItem("counterFav");
+
+  // localStorage.setItem("counterFav", counterFav);
+};
+
+///??????????????????
+const randomMovie = () => {
+  let index = Math.floor(Math.random() * movies.length);
+  let index1 = Object.keys(movies[index])[
+    Math.floor(Math.random() * Object.keys(movies[index]).length)
+  ];
+  let index2 = Object.keys(movies[index][index1])[
+    Math.floor(Math.random() * Object.keys(movies[index][index1]).length)
+  ];
+
+  contFavPage.html("");
+  const decMovie = $(`
+        <div class="con-des">
+        <img  width="300" height="400" src="${movies[index][index1][index2].img}">
+        </div>
+        <div class="desmovie">
+        <p id="${movies[index][index1][index2].type}">${movies[index][index1][index2].name}</p>
+        <p  class="des"><img src="./images/star.png" width="25" height="25" alt="star">
+        <b>${movies[index][index1][index2].rating}</b></p>
+        <p class="des"><b>Date: </b>${movies[index][index1][index2].date}</p>
+        <p class="des"><b>Type: </b>${movies[index][index1][index2].type}</p>
+        <p class="des" ><b>Director: </b>${movies[index][index1][index2].Director}</p>
+        <p class="des" ><b>Time: </b>${movies[index][index1][index2].time}</p>
+        <h2 class="des">Description:</h2>
+        <div class="des">${movies[index][index1][index2].story}</div>
+       
+        <div><button id="deleteButton" onclick="DeleteButton('${index}')">Delete</button> </div></div></div>
+        <div class="continuer-des">
+
+        <iframe id="video" width="400" height="300"
+        src="${movies[index][index1][index2].video}"
+         frameborder="0" allowFullScreen></iframe>
+         </div>
+        `);
+
+  contFavPage.append(decMovie);
+
+  contFavPage.show();
+
+  s;
 };
 
 //home page
@@ -528,4 +579,21 @@ $("#favoriteNavbar").on("click", () => {
     FavPage.append(card);
   }
   $(".FavPage").show();
+});
+
+//random Movie
+$("#randomNavbar").on("click", () => {
+  $(".titlePageFav").hide();
+  $(".banner").hide();
+  $(".card").hide();
+  $("#filter").hide();
+  $(".continuer").hide();
+  $(".FavPage").hide();
+  $(".titlePageFav").hide();
+  $(".cont-favPage").hide();
+
+  $("#homeNavbar").css("color", "#565950");
+  $("#moviesNavbar").css("color", "#565950");
+
+  randomMovie();
 });

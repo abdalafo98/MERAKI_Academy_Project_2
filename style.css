@@ -522,13 +522,6 @@ div.card-image img:hover {
   width: 80%;
 }
 
-.c {
-  font-size: 20px;
-  float: right;
-  align-items: center;
-  background-color: rgb(247, 247, 247);
-  padding-bottom: 130px;
-}
 .child {
   font-size: 12pt;
   vertical-align: baseline;
