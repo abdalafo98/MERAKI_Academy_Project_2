@@ -239,6 +239,66 @@ const movies = [
       },
     },
   },
+
+  {
+    horror: {
+      Tumbbad: {
+        key: "Tumbbad",
+        name: "Tumbbad",
+        date: "12 October 2018",
+        type: "Horror",
+        rating: 8.3,
+        Director: "Rahi Anil Barve",
+        img: "images/Tumbbad.jpg",
+        time: "1h 44min ",
+        story:
+          "A mythological story about a goddess who created the entire universe. The plot revolves around the consequences when humans build a temple for her first-born.",
+        video: "https://www.youtube.com/embed/sN75MPxgvX8",
+      },
+
+      TheExorcist: {
+        key: "TheExorcist",
+        name: "The Exorcist",
+        date: "26 December 1973",
+        type: "Horror",
+        rating: 8.0,
+        Director: "William Friedkin",
+        img: "images/TheExorcist.jpg",
+        time: "2h 2min",
+        story:
+          "When a 12-year-old girl is possessed by a mysterious entity, her mother seeks the help of two priests to save her.",
+        video: "https://www.youtube.com/embed/gzFCk_cvmik",
+      },
+
+      GetOut: {
+        key: "GetOut ",
+        name: "Get Out ",
+        date: "24 February 2017",
+        type: "Horror",
+        rating: 7.7,
+        Director: "Jordan Peele",
+        img: "images/GetOut.jpg",
+        time: "1h 44min",
+        story:
+          "A young African-American visits his white girlfriend's parents for the weekend, where his simmering uneasiness about their reception of him eventually reaches a boiling point.",
+        video: "https://www.youtube.com/embed/DzfpyUB60YY",
+      },
+
+      TraintoBusan: {
+        key: "TraintoBusan",
+        name: "Train to Busan",
+        date: "20 July 2016",
+        type: "Horror",
+        rating: 7.6,
+        Director: "Sang-ho Yeon",
+        img: "images/TraintoBusan.jpg",
+        time: "1h 32min",
+        story:
+          "While a zombie virus breaks out in South Korea, passengers struggle to survive on the train from Seoul to Busan.",
+        video: "https://www.youtube.com/embed/pyWuHv2-Abk",
+      },
+    },
+  },
 ];
 
 const body = $("body");
@@ -311,6 +371,7 @@ const showMoviePage = () => {
   $("#homeNavbar").css("color", "#565950");
   $("#moviesNavbar").css("color", "goldenrod");
   $(".titlePageFav").hide();
+  $("#randomNavbar").hide();
 
   $(".Navbar").css({
     marginBottom: "20px",
@@ -372,6 +433,7 @@ const filter = (index) => {
 let favMovies = [];
 let counterFav = 0;
 const favireteButton = (e) => {
+  console.log(e);
   for (let index = 0; index < movies.length; index++) {
     for (const key in movies[index]) {
       for (const movie in movies[index][key]) {
@@ -379,17 +441,12 @@ const favireteButton = (e) => {
           localStorage.clear("favMovie");
           favNavNum.innerText = localStorage.setItem("counterFav", 0);
         }
-        if (
-          !(
-            movies.includes(movies[index][key][movie]) ===
-            favMovies.indexOf(movies[index][key][movie])
-          )
-        ) {
-          if (movie === e) {
-            counterFav++;
-            // $("#favNavNum").val(`${(counterFav = +1)}`);
-            favMovies.push(movies[index][key][movie]);
-          }
+
+        if (movie === e) {
+          console.log(favMovies[index]);
+          counterFav++;
+          // $("#favNavNum").val(`${(counterFav = +1)}`);
+          favMovies.push(movies[index][key][movie]);
         }
       }
     }
@@ -529,6 +586,7 @@ $("#homeNavbar").on("click", () => {
   $(".titlePageFav").hide();
   $(".cont-favPage").hide();
   $(".titlePageFav").hide();
+  $("#randomNavbar").hide();
 
   $("#homeNavbar").css("color", "goldenrod");
   $("#moviesNavbar").css("color", "#565950");
@@ -552,7 +610,7 @@ $("#favoriteNavbar").on("click", () => {
   $("#filter").hide();
   $(".continuer").hide();
   $(".cont-favPage").hide();
-
+  $("#randomNavbar").hide();
   $(".Navbar").css({
     marginBottom: "0px",
   });

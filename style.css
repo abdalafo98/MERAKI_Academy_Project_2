@@ -407,6 +407,17 @@ div.card-description h2 {
   background-color: #0d79a3;
   border-radius: 20px;
 }
+
+#Horror {
+  text-align: center;
+  color: #f0f0f0;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  background-color: #091a20;
+  border-radius: 20px;
+}
+
 #animation div.card-description h3 {
   color: #0d0d0d;
   font-size: 18px;
