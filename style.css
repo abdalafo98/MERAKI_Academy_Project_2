@@ -273,11 +273,6 @@ div.card-description {
   direction: row;
 }
 
-.continuer-class {
-  display: flex;
-  direction: row;
-}
-
 .continuer-des {
   direction: column;
   margin-right: 60px;
