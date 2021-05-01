@@ -247,6 +247,8 @@ const continuer = $(".continuer");
 const contFavPage = $(".cont-favPage");
 $("#filter").hide();
 $(".titlePageFav").hide();
+const favNavNum = document.querySelector("#favNavNum");
+favNavNum.innerText = localStorage.getItem("counterFav");
 
 // get name card
 const changeKey = (e) => {
@@ -369,7 +371,6 @@ const filter = (index) => {
 
 let favMovies = [];
 let counterFav = 0;
-const favNavNum = document.querySelector("#favNavNum");
 const favireteButton = (e) => {
   for (let index = 0; index < movies.length; index++) {
     for (const key in movies[index]) {
@@ -380,15 +381,17 @@ const favireteButton = (e) => {
             favMovies.indexOf(movies[index][key][movie].length)
           )
         ) {
-        if (movie === e) {
-          favNavNum.innerText = counterFav += 1;
-          // $("#favNavNum").val(`${(counterFav = +1)}`);
-          favMovies.push(movies[index][key][movie]);
+          if (movie === e) {
+            counterFav++;
+            // $("#favNavNum").val(`${(counterFav = +1)}`);
+            favMovies.push(movies[index][key][movie]);
+          }
         }
       }
     }
   }
-  }
+  localStorage.setItem("counterFav", counterFav);
+  favNavNum.innerText = localStorage.getItem("counterFav");
   localStorage.setItem("favMovie", JSON.stringify(favMovies));
 };
 
@@ -446,19 +449,21 @@ const onClickFav = (e) => {
 
 const DeleteButton = (index) => {
   favMovies = JSON.parse(localStorage.getItem("favMovie"));
+  localStorage.setItem("counterFav", counterFav);
 
   $(".titlePageFav").show();
   $(".FavPage").show();
 
   if (counterFav > 0) {
+    counterFav--;
     favMovies.splice(index, 1);
     localStorage.setItem("favMovie", JSON.stringify(favMovies));
-
-    favNavNum.innerText = counterFav -= 1;
   }
 
   $(".continuer").hide();
   $(".cont-favPage").hide();
+  localStorage.setItem("counterFav", counterFav);
+  favNavNum.innerText = localStorage.getItem("counterFav");
 
   // localStorage.setItem("counterFav", counterFav);
 };
