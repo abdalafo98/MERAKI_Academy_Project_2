@@ -387,6 +387,7 @@ const favireteButton = (e) => {
         ) {
           if (movie === e) {
             counterFav++;
+            // $("#favNavNum").val(`${(counterFav = +1)}`);
             favMovies.push(movies[index][key][movie]);
           }
         }
@@ -417,7 +418,6 @@ const onClickFav = (e) => {
   $(".Navbar").css({
     marginBottom: "30px",
   });
-
   // information movie page
 
   for (let index = 0; index < getDataFav.length; index++) {
@@ -472,6 +472,24 @@ const DeleteButton = (index) => {
   $(".continuer").hide();
   $(".cont-favPage").hide();
   favNavNum.innerText = localStorage.getItem("counterFav");
+
+  // localStorage.setItem("counterFav", counterFav);
+};
+
+///??????????????????
+const randomMovie = () => {
+  let index = Math.floor(Math.random() * movies.length);
+  let index1 =
+    Object.keys(movies[index]) *
+    movies[index][Math.floor(Math.random() * movies[index].length)];
+  let index2 =
+    Object.keys(movies[index][index1]) *
+    movies[index][index1][
+      Math.floor(Math.random() * movies[index][index1].length)
+    ];
+
+  console.log(movies[index][index1][index2]);
+  // return movies[index][index1][index2];
 };
 
 //home page
