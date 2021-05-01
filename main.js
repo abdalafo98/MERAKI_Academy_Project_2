@@ -476,22 +476,6 @@ const DeleteButton = (index) => {
   // localStorage.setItem("counterFav", counterFav);
 };
 
-///??????????????????
-const randomMovie = () => {
-  let index = Math.floor(Math.random() * movies.length);
-  let index1 =
-    Object.keys(movies[index]) *
-    movies[index][Math.floor(Math.random() * movies[index].length)];
-  let index2 =
-    Object.keys(movies[index][index1]) *
-    movies[index][index1][
-      Math.floor(Math.random() * movies[index][index1].length)
-    ];
-
-  console.log(movies[index][index1][index2]);
-  // return movies[index][index1][index2];
-};
-
 //home page
 $("#homeNavbar").on("click", () => {
   $(".banner").show();
