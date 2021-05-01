@@ -246,6 +246,7 @@ const row = $(".row");
 const continuer = $(".continuer");
 const contFavPage = $(".cont-favPage");
 $("#filter").hide();
+$(".titlePageFav").hide();
 
 // get name card
 const changeKey = (e) => {
@@ -403,7 +404,6 @@ const onClickFav = (e) => {
   $(".row").hide();
   $(".continuer").hide();
   $("#filter").hide();
-  $(".FavPage").hide();
   $(".titlePageFav").hide();
 
   // information movie page
@@ -440,22 +440,27 @@ const onClickFav = (e) => {
 };
 
 const DeleteButton = (index) => {
-  $(".FavPage").show();
-
   favMovies.splice(index, 1);
   favNavNum.innerText = counterFav -= 1;
 
   // $(".FavPage").show();
-  $(".titlePageFav").hide();
   $(".continuer").hide();
 
   $(".cont-favPage").hide();
   $(".titlePageFav").show();
+  $(".FavPage").show();
 };
 
-const randomMovie = [];
+///??????????????????
+const randomMovieArr = [];
 const randomMovie = () => {
   var index = Math.floor(Math.random() * movies.length);
+  for (const key in movies[index]) {
+    for (const movie in movies[index][key]) {
+      randomMovieArr.push(movies[index][key][movie]);
+      console.log(movies[index][key][movie]);
+    }
+  }
 };
 
 //home page
@@ -530,4 +535,6 @@ $("#randomNavbar").on("click", () => {
 
   $("#homeNavbar").css("color", "#565950");
   $("#moviesNavbar").css("color", "#565950");
+
+  randomMovie();
 });
