@@ -13,7 +13,7 @@ const movies = [
         time: "2h 32min ",
         story:
           "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
-        video: "https://youtube.com/watch?v=EXeTwQWrcwY",
+        video: "https://youtube.com/embed/EXeTwQWrcwY",
       },
 
       TheMountainII: {
@@ -27,7 +27,7 @@ const movies = [
         time: "2h 15min ",
         story:
           "In a desolate war zone where screams of the innocent echo, seven Maroon Berets will dance with death on the very line between disaster and valor.",
-        video: "https://www.youtube.com/watch?v=L3rDQhwBf0I",
+        video: "https://www.youtube.com/embed/L3rDQhwBf0I",
       },
 
       Inception: {
@@ -41,7 +41,7 @@ const movies = [
         time: "2h 28min",
         story:
           "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
-        video: "https://www.youtube.com/watch?v=YoHD9XEInc0",
+        video: "https://www.youtube.com/embed/YoHD9XEInc0",
       },
 
       TheMatrix: {
@@ -55,7 +55,7 @@ const movies = [
         time: "2h 28min",
         story:
           "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.",
-        video: "https://www.youtube.com/watch?v=vKQi3bBA1y8",
+        video: "https://www.youtube.com/embed/vKQi3bBA1y8",
       },
     },
   },
@@ -73,7 +73,7 @@ const movies = [
         time: " 2h 12min",
         story:
           "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
-        video: "https://www.youtube.com/watch?v=SEUXfv87Wpk",
+        video: "https://www.youtube.com/embed/SEUXfv87Wpk",
       },
 
       LifeIsBeautiful: {
@@ -87,7 +87,7 @@ const movies = [
         time: "1h 56min",
         story:
           "When an open-minded Jewish librarian and his son become victims of the Holocaust, he uses a perfect mixture of will, humor, and imagination to protect his son from the dangers around their camp.",
-        video: "https://www.youtube.com/watch?v=pAYEQP8gx3w",
+        video: "https://www.youtube.com/embed/pAYEQP8gx3w",
       },
 
       TheIntouchables: {
@@ -101,7 +101,7 @@ const movies = [
         time: "1h 52min",
         story:
           "After he becomes a quadriplegic from a paragliding accident, an aristocrat hires a young man from the projects to be his caregiver.",
-        video: "https://www.youtube.com/watch?v=34WIbmXkewU",
+        video: "https://www.youtube.com/embed/34WIbmXkewU",
       },
 
       BacktotheFuture: {
@@ -115,7 +115,7 @@ const movies = [
         time: " 2h 12min",
         story:
           "Marty McFly, a 17-year-old high school student, is accidentally sent thirty years into the past in a time-traveling DeLorean invented by his close friend, the eccentric scientist Doc Brown.",
-        video: "https://www.youtube.com/watch?v=qvsgGtivCgs",
+        video: "https://www.youtube.com/embed/qvsgGtivCgs",
       },
     },
   },
@@ -133,7 +133,7 @@ const movies = [
         time: "2h 55min",
         story:
           "An organized crime dynasty's aging patriarch transfers control of his clandestine empire to his reluctant son.",
-        video: "https://www.youtube.com/watch?v=sY1S34973zA",
+        video: "https://www.youtube.com/embed/sY1S34973zA",
       },
 
       AngryMen: {
@@ -147,7 +147,7 @@ const movies = [
         time: " 1h 36min ",
         story:
           "A jury holdout attempts to prevent a miscarriage of justice by forcing his colleagues to reconsider the evidence.",
-        video: "https://www.youtube.com/watch?v=_13J_9B5jEk",
+        video: "https://www.youtube.com/embed/_13J_9B5jEk",
       },
 
       Interstellar: {
@@ -161,7 +161,7 @@ const movies = [
         time: "2h 49min",
         story:
           "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
-        video: "https://www.youtube.com/watch?v=Lm8p5rlrSkY",
+        video: "https://www.youtube.com/embed/Lm8p5rlrSkY",
       },
 
       Hamilton: {
@@ -175,7 +175,7 @@ const movies = [
         time: "2h 49min",
         story:
           "The real life of one of America's foremost founding fathers and first Secretary of the Treasury, Alexander Hamilton. Captured live on Broadway from the Richard Rodgers Theater with the original Broadway cast.",
-        video: "https://www.youtube.com/watch?v=67CaQADkPho",
+        video: "https://www.youtube.com/embed/67CaQADkPho",
       },
     },
   },
@@ -193,7 +193,7 @@ const movies = [
         time: "1h 46min",
         story:
           "Two strangers find themselves linked in a bizarre way. When a connection forms, will distance be the only thing to keep them apart?",
-        video: "https://www.youtube.com/watch?v=xU47nhruN-Q",
+        video: "https://www.youtube.com/embed/xU47nhruN-Q",
       },
 
       coco: {
@@ -207,7 +207,7 @@ const movies = [
         time: "1h 45min",
         story:
           "Aspiring musician Miguel, confronted with his family's ancestral ban on music, enters the Land of the Dead to find his great-great-grandfather, a legendary singer.",
-        video: "https://www.youtube.com/watch?v=5sSMRg1X1vg",
+        video: "https://www.youtube.com/embed/5sSMRg1X1vg",
       },
 
       Soul: {
@@ -221,7 +221,7 @@ const movies = [
         time: "1h 40min",
         story:
           "After landing the gig of a lifetime, a New York jazz pianist suddenly finds himself trapped in a strange land between Earth and the afterlife.",
-        video: "https://www.youtube.com/watch?v=xOsLIiBStEs",
+        video: "https://www.youtube.com/embed/xOsLIiBStEs",
       },
 
       Monsters: {
@@ -235,7 +235,7 @@ const movies = [
         time: "1h 32min",
         story:
           "In order to power the city, monsters have to scare children so that they scream. However, the children are toxic to the monsters, and after a child gets through, two monsters realize things may not be what they think.",
-        video: "https://www.youtube.com/watch?v=CGbgaHoapFM",
+        video: "https://www.youtube.com/embed/CGbgaHoapFM",
       },
     },
   },
@@ -387,7 +387,6 @@ const favireteButton = (e) => {
         ) {
           if (movie === e) {
             counterFav++;
-            // $("#favNavNum").val(`${(counterFav = +1)}`);
             favMovies.push(movies[index][key][movie]);
           }
         }
@@ -418,6 +417,7 @@ const onClickFav = (e) => {
   $(".Navbar").css({
     marginBottom: "30px",
   });
+
   // information movie page
 
   for (let index = 0; index < getDataFav.length; index++) {
@@ -472,21 +472,6 @@ const DeleteButton = (index) => {
   $(".continuer").hide();
   $(".cont-favPage").hide();
   favNavNum.innerText = localStorage.getItem("counterFav");
-
-  // localStorage.setItem("counterFav", counterFav);
-};
-
-///??????????????????
-const randomMovie = () => {
-  let index = Math.floor(Math.random() * movies.length);
-  let index1 = Object.keys([
-    Math.floor(Math.random() * Object.keys(movies[index]).length),
-  ]);
-  let index2 = Object.keys([
-    Math.floor(Math.random() * Object.keys(movies[index][index1]).length),
-  ]);
-  console.log(movies[index][index1][index2]);
-  // return movies[index][index1][index2];
 };
 
 //home page
@@ -550,21 +535,4 @@ $("#favoriteNavbar").on("click", () => {
     FavPage.append(card);
   }
   $(".FavPage").show();
-});
-
-//random Movie
-$("#randomNavbar").on("click", () => {
-  $(".titlePageFav").hide();
-  $(".banner").hide();
-  $(".card").hide();
-  $("#filter").hide();
-  $(".continuer").hide();
-  $(".FavPage").hide();
-  $(".titlePageFav").hide();
-  $(".cont-favPage").hide();
-
-  $("#homeNavbar").css("color", "#565950");
-  $("#moviesNavbar").css("color", "#565950");
-
-  randomMovie();
 });

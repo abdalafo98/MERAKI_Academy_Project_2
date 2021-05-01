@@ -120,12 +120,12 @@ body {
   margin: 38px;
   border: #26231f;
   background-color: goldenrod;
-  border-radius: 5px;
   color: white;
   font-size: 25px;
   font-weight: 500;
   cursor: pointer;
   transition: 0.9s;
+  border-radius: 10px;
 }
 
 .button1:hover {
