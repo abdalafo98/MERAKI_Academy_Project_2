@@ -398,8 +398,6 @@ div.card-description h2 {
   border-radius: 20px;
 }
 
-/*  */
-
 #Animation {
   text-align: center;
   color: #f0f0f0;
@@ -423,12 +421,6 @@ div.card-description h4 {
   font-size: 15px;
   font-weight: 700;
   margin-bottom: 6px;
-}
-
-div.card-description p {
-  color: #89ba16;
-  font-size: 14px;
-  margin-bottom: 16px;
 }
 
 div.card-description a {
