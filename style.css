@@ -462,10 +462,6 @@ div.card-image img:hover {
   background-color: whitesmoke;
 }
 
-.btn:hover {
-  background-color: rgb(114, 114, 114);
-}
-
 #favNavNum {
   background-color: white;
   color: rgb(100, 99, 99);
