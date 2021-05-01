@@ -379,17 +379,10 @@ const favireteButton = (e) => {
           localStorage.clear("favMovie");
           favNavNum.innerText = localStorage.setItem("counterFav", 0);
         }
-        if (
-          !(
-            movies.includes(movies[index][key][movie]) ===
-            favMovies.indexOf(movies[index][key][movie])
-          )
-        ) {
-          if (movie === e) {
-            counterFav++;
-            // $("#favNavNum").val(`${(counterFav = +1)}`);
-            favMovies.push(movies[index][key][movie]);
-          }
+
+        if (movie === e) {
+          counterFav++;
+          favMovies.push(movies[index][key][movie]);
         }
       }
     }
@@ -472,8 +465,6 @@ const DeleteButton = (index) => {
   $(".continuer").hide();
   $(".cont-favPage").hide();
   favNavNum.innerText = localStorage.getItem("counterFav");
-
-  // localStorage.setItem("counterFav", counterFav);
 };
 
 //home page
