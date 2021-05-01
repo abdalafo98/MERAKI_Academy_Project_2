@@ -466,10 +466,6 @@ div.card-image img:hover {
 .show {
   display: block;
 }
-#myBtnContainer {
-  margin-left: 100px;
-}
-/* Style the buttons */
 
 .btn:hover {
   background-color: rgb(114, 114, 114);
