@@ -423,12 +423,6 @@ div.card-description h4 {
   margin-bottom: 6px;
 }
 
-div.card-description a {
-  color: #89ba16;
-  font-weight: 500;
-  text-decoration: none;
-  text-transform: uppercase;
-}
 #randomNavbar {
   background-color: rgb(42, 179, 76);
   padding: 10px;
