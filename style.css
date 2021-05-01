@@ -462,11 +462,6 @@ div.card-image img:hover {
   background-color: whitesmoke;
 }
 
-/* The "show" class is added to the filtered elements */
-.show {
-  display: block;
-}
-
 .btn:hover {
   background-color: rgb(114, 114, 114);
 }
