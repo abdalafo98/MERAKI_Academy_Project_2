@@ -374,12 +374,12 @@ const favireteButton = (e) => {
   for (let index = 0; index < movies.length; index++) {
     for (const key in movies[index]) {
       for (const movie in movies[index][key]) {
-        // if (
-        //   !(
-        //     movies.hasOwnProperty(movies[index][key][movie]) ===
-        //     favMovies.indexOf(movies[index][key][movie].key)
-        //   )
-        // ) {
+        if (
+          !(
+            movies.hasOwnProperty(movies[index][key][movie]) ===
+            favMovies.indexOf(movies[index][key][movie].length)
+          )
+        ) {
         if (movie === e) {
           favNavNum.innerText = counterFav += 1;
           // $("#favNavNum").val(`${(counterFav = +1)}`);
@@ -388,7 +388,7 @@ const favireteButton = (e) => {
       }
     }
   }
-  // }
+  }
   localStorage.setItem("favMovie", JSON.stringify(favMovies));
 };
 
@@ -445,14 +445,16 @@ const onClickFav = (e) => {
 };
 
 const DeleteButton = (index) => {
-  let getDataFav = JSON.parse(localStorage.getItem("favMovie"));
+  favMovies = JSON.parse(localStorage.getItem("favMovie"));
 
   $(".titlePageFav").show();
   $(".FavPage").show();
 
   if (counterFav > 0) {
+    favMovies.splice(index, 1);
+    localStorage.setItem("favMovie", JSON.stringify(favMovies));
+
     favNavNum.innerText = counterFav -= 1;
-    getDataFav.splice(index, 1);
   }
 
   $(".continuer").hide();
@@ -462,12 +464,11 @@ const DeleteButton = (index) => {
 };
 
 ///??????????????????
-const randomMovieArr = [];
 const randomMovie = () => {
   var index = Math.floor(Math.random() * movies.length);
   for (const key in movies[index]) {
     for (const movie in movies[index][key]) {
-      randomMovieArr.push(movies[index][key][movie]);
+      movies[index][key][movie] = movies[index][key][movie];
       console.log(movies[index][key][movie]);
     }
   }
