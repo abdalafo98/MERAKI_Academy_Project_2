@@ -309,11 +309,11 @@ const randomDiv = $(".random-div");
 $("#filter").hide();
 $(".titlePageFav").hide();
 let counterFav = 0;
+localStorage.getItem("fav");
 const favNavNum = document.querySelector("#favNavNum");
 favNavNum.innerText = localStorage.getItem("counterFav");
-let favMovies = [];
+let favMovies = []; // get name card
 
-// get name card
 const changeKey = (e) => {
   $("continuer").show();
   $("#filter").hide();
@@ -324,8 +324,7 @@ const changeKey = (e) => {
   $(".cont-favPage").hide();
   $(".card").hide();
 
-  // information movie page
-
+  // on click movie card in movie page
   for (let index = 0; index < movies.length; index++) {
     for (const key in movies[index]) {
       for (const movie in movies[index][key]) {
@@ -379,7 +378,7 @@ const showMoviePage = () => {
   });
   row.html("");
 
-  //get all data
+  //get all data movie
   for (let index = 0; index < movies.length; index++) {
     for (const key in movies[index]) {
       for (const movie in movies[index][key]) {
@@ -431,20 +430,19 @@ const filter = (index) => {
   }
 };
 
+// push fav movie on array favMovies
 const favireteButton = (e) => {
   console.log(e);
   for (let index = 0; index < movies.length; index++) {
     for (const key in movies[index]) {
       for (const movie in movies[index][key]) {
         if (counterFav === 0) {
-          localStorage.clear("favMovie");
+          // localStorage.clear("favMovie");
           favNavNum.innerText = localStorage.setItem("counterFav", 0);
         }
 
         if (movie === e) {
-          console.log(favMovies[index]);
           counterFav++;
-          // $("#favNavNum").val(`${(counterFav = +1)}`);
           favMovies.push(movies[index][key][movie]);
         }
       }
@@ -455,6 +453,7 @@ const favireteButton = (e) => {
   localStorage.setItem("favMovie", JSON.stringify(favMovies));
 };
 
+// onclick card movie in fav page
 const onClickFav = (e) => {
   let getDataFav = JSON.parse(localStorage.getItem("favMovie"));
 
@@ -474,8 +473,8 @@ const onClickFav = (e) => {
   $(".Navbar").css({
     marginBottom: "30px",
   });
-  // information movie page
 
+  // information movie page
   for (let index = 0; index < getDataFav.length; index++) {
     contFavPage.html("");
     const decMovie = $(`
@@ -506,7 +505,7 @@ const onClickFav = (e) => {
   }
   contFavPage.show();
 };
-
+// delete from fav
 const DeleteButton = (index) => {
   favMovies = JSON.parse(localStorage.getItem("favMovie"));
   localStorage.setItem("counterFav", counterFav);
@@ -590,7 +589,6 @@ $("#homeNavbar").on("click", () => {
 $("#moviesNavbar").on("click", showMoviePage);
 
 // favorite page
-
 $("#favoriteNavbar").on("click", () => {
   let getDataFav = JSON.parse(localStorage.getItem("favMovie"));
 
