@@ -533,7 +533,6 @@ const DeleteButton = (index) => {
   favNavNum.innerText = localStorage.getItem("counterFav");
 };
 
-//get random movie
 const randomMovie = () => {
   let index = Math.floor(Math.random() * movies.length);
   let index1 = Object.keys(movies[index])[
