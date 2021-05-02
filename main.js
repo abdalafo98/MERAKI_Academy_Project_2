@@ -308,8 +308,10 @@ const contFavPage = $(".cont-favPage");
 const randomDiv = $(".random-div");
 $("#filter").hide();
 $(".titlePageFav").hide();
+let counterFav = 0;
 const favNavNum = document.querySelector("#favNavNum");
 favNavNum.innerText = localStorage.getItem("counterFav");
+let favMovies = [];
 
 // get name card
 const changeKey = (e) => {
@@ -429,8 +431,6 @@ const filter = (index) => {
   }
 };
 
-let favMovies = [];
-let counterFav = 0;
 const favireteButton = (e) => {
   console.log(e);
   for (let index = 0; index < movies.length; index++) {
