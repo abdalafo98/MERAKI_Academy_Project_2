@@ -646,6 +646,5 @@ $("#randomNavbar").on("click", () => {
   $(".titlePageFav").hide();
   $("#homeNavbar").css("color", "#565950");
   $("#moviesNavbar").css("color", "#565950");
-
   randomMovie();
 });
