@@ -74,6 +74,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   text-shadow: 1px 1px 1px rgba(151, 150, 150, 0.877);
+  transition: 0.9s;
 }
 
 .Navbar ul li:hover {
@@ -190,7 +191,7 @@ body {
 } */
 
 div.card {
-  width: 280px;
+  width: 270px;
   background-color: #f0f0f0;
   border-radius: 5px;
   box-shadow: 0 2px 4px #1b1b1b33;
@@ -200,6 +201,7 @@ div.card {
   margin: 30px;
   cursor: pointer;
   flex-grow: 1;
+  transition: 0.9s;
 }
 
 .FavPage {
@@ -248,26 +250,29 @@ div.card {
 
 div.card-image {
   width: 100%;
-  height: 300px;
+  height: 310x;
   border-radius: 5px 5px 0 0;
   box-shadow: 2px 2px 2px rgba(126, 126, 126, 0.658);
+  transition: 0.9s;
 }
 
 div.card-image img {
   width: 100%;
   max-width: 100%;
-  height: 300px;
+  height: 310px;
   border-radius: 5px 5px 0 0;
   transition: all 0.3s;
+  transition: 0.9s;
 }
 
-div.card-description {
+.card-description {
   width: 100%;
   height: auto;
   background-color: #ffffff;
   border-radius: 0 0 5px 5px;
   padding: 25px;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.658);
+  transition: 0.9s;
 }
 .con-des {
   box-shadow: goldenrod;
@@ -434,14 +439,14 @@ div.card-description h2 {
   font-weight: 700;
   margin-bottom: 6px;
   background-color: rgb(248, 246, 246);
+  transition: 0.9s;
 }
 
 div.card-description h4 {
-  background-color: rgb(248, 246, 246);
-  color: #40010d;
   font-size: 15px;
   font-weight: 700;
   margin-bottom: 6px;
+  transition: 0.9s;
 }
 
 #randomNavbar {
@@ -480,7 +485,6 @@ div.card-image img:hover {
 #filter {
   margin: auto;
   width: 79%;
-  background-color: whitesmoke;
 }
 
 #favNavNum {
@@ -526,7 +530,6 @@ div.card-image img:hover {
   padding-left: 10px;
   margin-bottom: 15px;
   font-family: cursive;
-  background-color: rgb(253, 252, 252);
 }
 
 #nameMov {
@@ -563,6 +566,53 @@ div.card-image img:hover {
 
 #favoriteNavbar:hover {
   background-color: rgb(250, 189, 35);
+}
+
+input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 50px;
+  height: 30px;
+  background: goldenrod;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+label:after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.5s;
+}
+
+input:checked + label {
+  background: grey;
+}
+
+input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 20px;
+}
+
+.dark-mode {
+  background-color: rgb(46, 38, 38);
+  color: white;
 }
 
 @media screen and (max-width: 600px) {

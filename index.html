@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
     <link rel="icon" href="./images/favicon.png" type="image/x-icon"/>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/regular.min.js"
+  />
     <script
       src="https://code.jquery.com/jquery-3.6.0.js"
       integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
@@ -17,7 +22,8 @@
     
     <div class="Navbar">
       <h1 class="logo">Best<span class="spanColor">Movies</span></h1>
-      <ul>
+      <input type="checkbox" id="switch" /><label for="switch" onclick="darkMode()">Toggle</label>
+      <ul id="listButton">
         <li id="homeNavbar" class="color">Home</li>
         <li id="moviesNavbar" >Movies</li>
         <li id="favoriteNavbar" >Favorite <span id="favNavNum">0</span></li>

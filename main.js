@@ -49,7 +49,7 @@ const movies = [
         name: "The Matrix",
         date: "31 March 1999",
         type: "Action",
-        Director: " Lana Wachowski,Lilly",
+        Director: " Lana Wachowski",
         rating: 8.7,
         img: "images/TheMatrix.jpg",
         time: "2h 28min",
@@ -306,6 +306,11 @@ const row = $(".row");
 const continuer = $(".continuer");
 const contFavPage = $(".cont-favPage");
 const randomDiv = $(".random-div");
+
+$(".input:checked").css({
+  backgroundColor: "none",
+  color: "black",
+});
 $("#filter").hide();
 $(".titlePageFav").hide();
 let counterFav = 0;
@@ -370,8 +375,8 @@ const showMoviePage = () => {
   $(".continuer").hide();
   $(".FavPage").hide();
   $(".banner").hide();
-  $("#homeNavbar").css("color", "#565950");
-  $("#moviesNavbar").css("color", "goldenrod");
+  // $("#homeNavbar").css("color", "#565950");
+  // $("#moviesNavbar").css("color", "goldenrod");
   $(".titlePageFav").hide();
   $(".random-div").hide();
   $(".Navbar").css({
@@ -392,7 +397,7 @@ const showMoviePage = () => {
           <h2>${movies[index][key][movie].name}<h2> 
           <h2 id="${movies[index][key][movie].type}">${movies[index][key][movie].type}</h2>
           <h3>Date: <span class="fontCard">${movies[index][key][movie].date}</span></h3>
-          <h4>Director:<span class="fontCard"> ${movies[index][key][movie].Director}</span></h4>
+          <h4 id="fontH4">Director:<span class="fontCard"> ${movies[index][key][movie].Director}</span></h4>
           </div> 
           </div>`
         );
@@ -438,20 +443,37 @@ const favireteButton = (e) => {
     for (const key in movies[index]) {
       for (const movie in movies[index][key]) {
         if (counterFav === 0) {
-          // localStorage.clear("favMovie");
           favNavNum.innerText = localStorage.setItem("counterFav", 0);
         }
-
-        if (movie == e) {
-          counterFav++;
-          favMovies.push(movies[index][key][movie]);
+        if (movie === e) {
+          console.log(favMovies);
+          if (favMovies.length == 0) {
+            console.log("ok1");
+            counterFav++;
+            favMovies.push(movies[index][key][movie]);
+            localStorage.setItem("counterFav", counterFav);
+            favNavNum.innerText = localStorage.getItem("counterFav");
+            localStorage.setItem("favMovie", JSON.stringify(favMovies));
+          } else {
+            for (let index2 = 0; index2 < favMovies.length; index2++) {
+              if (movie === favMovies[index2]["key"]) {
+                return;
+              }
+            }
+            // console.log("ok2", movie, favMovies[index2]["key"]);
+            counterFav++;
+            favMovies.push(movies[index][key][movie]);
+            localStorage.setItem("counterFav", counterFav);
+            favNavNum.innerText = localStorage.getItem("counterFav");
+            localStorage.setItem("favMovie", JSON.stringify(favMovies));
+          }
         }
       }
     }
   }
-  localStorage.setItem("counterFav", counterFav);
-  favNavNum.innerText = localStorage.getItem("counterFav");
-  localStorage.setItem("favMovie", JSON.stringify(favMovies));
+  // localStorage.setItem("counterFav", counterFav);
+  // favNavNum.innerText = localStorage.getItem("counterFav");
+  // localStorage.setItem("favMovie", JSON.stringify(favMovies));
 };
 
 // onclick card movie in fav page
@@ -524,6 +546,7 @@ const deleteButton = (index) => {
     localStorage.setItem("favMovie", JSON.stringify(favMovies));
   }
   if (counterFav === 0) {
+    $("#FavPage").show();
     localStorage.clear("favMovie");
     favNavNum.innerText = localStorage.setItem("counterFav", 0);
   }
@@ -575,6 +598,48 @@ const randomMovie = () => {
 
   randomDiv.show();
 };
+
+const darkMode = () => {
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+  $(".logo").css({ color: "white" });
+  $("#homeNavbar").css({ color: "white" });
+  $("#moviesNavbar").css({ color: "white" });
+  $(".btn").css({ color: "black", backgroundColor: "rgb(241, 235, 235)" });
+  $(".div.card").css({ backgroundColor: "rgb(46, 38, 38)", color: "white" });
+  $(".card-description").css({
+    backgroundColor: "rgb(46, 38, 38)",
+    color: "white",
+  });
+
+  $(".fontCard").css({
+    backgroundColor: "rgb(46, 38, 38)",
+    color: "white",
+  });
+
+  $(".desmovie").css({ backgroundColor: "none", color: "white" });
+
+  // if($("input[@name='class']:checked").val() == 'A')
+};
+
+$(".logo").css({ color: "black" });
+$("#homeNavbar").css({ color: "grey" });
+$("#moviesNavbar").css({ color: "grey" });
+$(".btn").css({ color: "white", backgroundColor: "black" });
+$(".div.card").css({ color: "black", backgroundColor: "white" });
+$(".card-description").css({
+  color: "black",
+  backgroundColor: "white",
+});
+
+// $(".des").css({ color: "black" });
+
+$(".fontCard").css({
+  backgroundColor: "rgb(46, 38, 38)",
+  color: "white",
+});
+
+$(".des").css({ backgroundColor: "none", color: "black" });
 
 //home page
 $("#homeNavbar").on("click", () => {
@@ -654,5 +719,6 @@ $("#randomNavbar").on("click", () => {
   $(".titlePageFav").hide();
   $("#homeNavbar").css("color", "#565950");
   $("#moviesNavbar").css("color", "#565950");
+  $(".cont-favPage").hide();
   randomMovie();
 });
