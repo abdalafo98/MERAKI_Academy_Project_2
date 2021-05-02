@@ -312,8 +312,9 @@ let counterFav = 0;
 localStorage.getItem("fav");
 const favNavNum = document.querySelector("#favNavNum");
 favNavNum.innerText = localStorage.getItem("counterFav");
-let favMovies = []; // get name card
+let favMovies = [];
 
+// get name card
 const changeKey = (e) => {
   $("continuer").show();
   $("#filter").hide();
@@ -441,7 +442,7 @@ const favireteButton = (e) => {
           favNavNum.innerText = localStorage.setItem("counterFav", 0);
         }
 
-        if (movie === e) {
+        if (movie == e) {
           counterFav++;
           favMovies.push(movies[index][key][movie]);
         }
@@ -512,6 +513,9 @@ const DeleteButton = (index) => {
 
   $(".titlePageFav").show();
   $(".FavPage").show();
+  $(".Navbar").css({
+    marginBottom: "30px",
+  });
 
   if (counterFav > 0) {
     counterFav--;
@@ -539,6 +543,9 @@ const randomMovie = () => {
     Math.floor(Math.random() * Object.keys(movies[index][index1]).length)
   ];
 
+  $(".Navbar").css({
+    marginBottom: "30px",
+  });
   randomDiv.html("");
   const decMovie = $(`
         <div class="con-des">
@@ -601,7 +608,7 @@ $("#favoriteNavbar").on("click", () => {
   $(".cont-favPage").hide();
   $(".random-div").hide();
   $(".Navbar").css({
-    marginBottom: "0px",
+    marginBottom: "1px",
   });
 
   $("#homeNavbar").css("color", "#565950");
