@@ -314,7 +314,7 @@ const favNavNum = document.querySelector("#favNavNum");
 favNavNum.innerText = localStorage.getItem("counterFav");
 let favMovies = [];
 
-// get name card
+// get card key
 const changeKey = (e) => {
   $("continuer").show();
   $("#filter").hide();
@@ -644,6 +644,7 @@ $("#favoriteNavbar").on("click", () => {
 
 //random Movie
 $("#randomNavbar").on("click", () => {
+  $("#video").trigger("pause");
   $(".titlePageFav").hide();
   $(".banner").hide();
   $(".card").hide();
