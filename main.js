@@ -493,7 +493,7 @@ const onClickFav = (e) => {
           <h2 class="des">Description:</h2>
           <div class="des">${getDataFav[index].story}</div>
          
-          <div><button id="deleteButton" onclick="DeleteButton('${index}')">Delete</button> </div></div></div>
+          <div><button id="deleteButton" onclick="deleteButton('${index}')">Delete</button> </div></div></div>
           <div class="continuer-des">
 
           <iframe id="video" width="400" height="300"
@@ -507,17 +507,17 @@ const onClickFav = (e) => {
   contFavPage.show();
 };
 // delete from fav
-const DeleteButton = (index) => {
+const deleteButton = (index) => {
   favMovies = JSON.parse(localStorage.getItem("favMovie"));
   localStorage.setItem("counterFav", counterFav);
 
   $(".titlePageFav").show();
-  $(".FavPage").show();
   $(".Navbar").css({
     marginBottom: "30px",
   });
 
   if (counterFav > 0) {
+    $("#FavPage").show();
     counterFav--;
     localStorage.setItem("counterFav", counterFav);
     favMovies.splice(index, 1);
@@ -530,6 +530,7 @@ const DeleteButton = (index) => {
 
   $(".continuer").hide();
   $(".cont-favPage").hide();
+
   favNavNum.innerText = localStorage.getItem("counterFav");
 };
 
@@ -559,8 +560,11 @@ const randomMovie = () => {
         <p class="des" ><b>Director: </b>${movies[index][index1][index2].Director}</p>
         <p class="des" ><b>Time: </b>${movies[index][index1][index2].time}</p>
         <h2 class="des">Description:</h2>
-        <div class="des">${movies[index][index1][index2].story}</div></div></div>
+        <div class="des">${movies[index][index1][index2].story}</div>
+        <div><button onclick="favireteButton('${movies[index][index1][index2].key}')" id="favBtn">FAVORITE</button> </div></div></div>
+        </div></div>
         <div class="continuer-des">
+
         <iframe id="video" width="400" height="300"
         src="${movies[index][index1][index2].video}"
          frameborder="0" allowFullScreen></iframe>
@@ -613,10 +617,14 @@ $("#favoriteNavbar").on("click", () => {
   $("#homeNavbar").css("color", "#565950");
   $("#moviesNavbar").css("color", "#565950");
 
-  const FavPage = $(".FavPage");
-  FavPage.html("");
+  const favPage = $(".FavPage");
+  favPage.html("");
   console.log();
-  for (let index = 0; index < getDataFav.length; index++) {
+  for (
+    let index = 0;
+    index < getDataFav.length == 0 ? 0 : getDataFav.length;
+    index++
+  ) {
     const card = $(
       `<div class="card" onclick="onClickFav('${index}')">  
           <div class="card-image">
@@ -629,7 +637,7 @@ $("#favoriteNavbar").on("click", () => {
           </div> 
           </div>`
     );
-    FavPage.append(card);
+    favPage.append(card);
   }
   $(".FavPage").show();
 });
