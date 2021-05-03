@@ -379,8 +379,6 @@ const showMoviePage = () => {
   $(".continuer").hide();
   $(".FavPage").hide();
   $(".banner").hide();
-  // $("#homeNavbar").css("color", "#565950");
-  // $("#moviesNavbar").css("color", "goldenrod");
   $(".titlePageFav").hide();
   $(".random-div").hide();
   $(".Navbar").css({
@@ -622,16 +620,10 @@ const onClickFav = (e) => {
 // delete from fav
 const deleteButton = (index) => {
   favMovies = JSON.parse(localStorage.getItem("favMovie"));
-  // localStorage.setItem("counterFav", counterFav);
   $(".titlePageFav").show();
   $("#FavPage").show();
 
-  // $(".Navbar").css({
-  //   marginBottom: "30px",
-  // });
-
   if (counterFav > 0) {
-    // $("#FavPage").show();
     favMovies.splice(index, 1);
 
     counterFav--;
@@ -693,13 +685,10 @@ const randomMovie = () => {
 
   randomDiv.show();
 };
-const switchs = document.querySelector(".sw");
 const darkMode = () => {
   checked = $("input[type=checkbox]:checked").length;
 
   if (checked === 0) {
-    // document.switchs.style.backgroundImage = "url('images/moon.png')";
-
     body.css({ backgroundColor: "rgb(46, 38, 38)", color: "white" });
     $(".logo").css({ color: "white" });
     $("#homeNavbar").css({ color: "white" });
