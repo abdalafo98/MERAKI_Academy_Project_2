@@ -8,7 +8,7 @@ const movies = [
         date: "18 July 2008",
         type: "Action",
         rating: 9.1,
-        Director: "Christopher Nolan",
+        Director: "Christopher ",
         img: "images/TheDarkKnight.jpg",
         time: "2h 32min ",
         story:
@@ -36,7 +36,7 @@ const movies = [
         date: "16 July 2010",
         type: "Action",
         rating: 8.8,
-        Director: "Christopher Nolan",
+        Director: "Christopher ",
         img: "images/Inception.jpg",
         time: "2h 28min",
         story:
@@ -156,7 +156,7 @@ const movies = [
         date: "7 November 2014",
         type: "Drama",
         rating: 8.6,
-        Director: "Christopher Nolan",
+        Director: "Christopher",
         img: "images/Interstellar.jpg",
         time: "2h 49min",
         story:
@@ -693,10 +693,13 @@ const randomMovie = () => {
 
   randomDiv.show();
 };
+const switchs = document.querySelector(".sw");
 const darkMode = () => {
   checked = $("input[type=checkbox]:checked").length;
 
   if (checked === 0) {
+    // document.switchs.style.backgroundImage = "url('images/moon.png')";
+
     body.css({ backgroundColor: "rgb(46, 38, 38)", color: "white" });
     $(".logo").css({ color: "white" });
     $("#homeNavbar").css({ color: "white" });
