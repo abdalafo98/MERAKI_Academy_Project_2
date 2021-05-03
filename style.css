@@ -363,10 +363,11 @@ div.card-description h2 {
   font-weight: 500;
   border: none;
   outline: none;
-  padding: 12px 16px;
-  background-color: rgb(75, 69, 69);
+  height: 50px;
+  width: 100px;
+  background-color: rgb(53, 50, 50);
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 15px;
   color: white;
   transition: 0.5s;
 }
@@ -486,7 +487,7 @@ div.card-image img:hover {
 #filter {
   margin: auto;
   width: 79%;
-  margin-left: 220px;
+  margin-left: 250px;
 }
 
 #favNavNum {

@@ -747,7 +747,10 @@ $("#homeNavbar").on("click", () => {
   $(".cont-favPage").hide();
   $(".titlePageFav").hide();
   $(".random-div").hide();
-
+  $(".Navbar").css({
+    marginBottom: "0px",
+  });
+});
 
 //movies Page
 $("#moviesNavbar").on("click", showMoviePage);
