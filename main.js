@@ -375,8 +375,8 @@ const showMoviePage = () => {
   $(".continuer").hide();
   $(".FavPage").hide();
   $(".banner").hide();
-  $("#homeNavbar").css("color", "#565950");
-  $("#moviesNavbar").css("color", "goldenrod");
+  // $("#homeNavbar").css("color", "#565950");
+  // $("#moviesNavbar").css("color", "goldenrod");
   $(".titlePageFav").hide();
   $(".random-div").hide();
   $(".Navbar").css({
@@ -430,6 +430,8 @@ const showMoviePage = () => {
 
 //filter categories
 const filter = (index) => {
+  checked = $("input[type=checkbox]:checked").length;
+
   row.html("");
 
   if (index == "") {
@@ -452,6 +454,24 @@ const filter = (index) => {
       );
       row.append(card);
     }
+  }
+  if (checked === 1) {
+    $(".card-description").css({
+      backgroundColor: "rgb(46, 38, 38)",
+      color: "white",
+    });
+    $(".titleH3").css({ color: "white" });
+
+    $(".fontCard").css({
+      color: "white",
+    });
+  } else {
+    $(".card-description").css({
+      backgroundColor: "white",
+    });
+    $(".fontCard").css({
+      color: "black",
+    });
   }
 };
 
@@ -573,11 +593,11 @@ const deleteButton = (index) => {
 
 const randomMovie = () => {
   let index = Math.floor(Math.random() * movies.length);
-  let index1 = Object.keys(movies[index])[
+  let key1 = Object.keys(movies[index])[
     Math.floor(Math.random() * Object.keys(movies[index]).length)
   ];
-  let index2 = Object.keys(movies[index][index1])[
-    Math.floor(Math.random() * Object.keys(movies[index][index1]).length)
+  let key2 = Object.keys(movies[index][key1])[
+    Math.floor(Math.random() * Object.keys(movies[index][key1]).length)
   ];
 
   $(".Navbar").css({
@@ -586,24 +606,24 @@ const randomMovie = () => {
   randomDiv.html("");
   const decMovie = $(`
         <div class="con-des">
-        <img  width="300" height="400" src="${movies[index][index1][index2].img}">
+        <img  width="300" height="400" src="${movies[index][key1][key2].img}">
         </div>
         <div class="desmovie">
-        <p id="${movies[index][index1][index2].type}">${movies[index][index1][index2].name}</p>
+        <p id="${movies[index][key1][key2].type}">${movies[index][key1][key2].name}</p>
         <p  class="des"><img src="./images/star.png" width="25" height="25" alt="star">
-        <b>${movies[index][index1][index2].rating}</b></p>
-        <p class="des"><b>Date: </b>${movies[index][index1][index2].date}</p>
-        <p class="des"><b>Type: </b>${movies[index][index1][index2].type}</p>
-        <p class="des" ><b>Director: </b>${movies[index][index1][index2].Director}</p>
-        <p class="des" ><b>Time: </b>${movies[index][index1][index2].time}</p>
+        <b>${movies[index][key1][key2].rating}</b></p>
+        <p class="des"><b>Date: </b>${movies[index][key1][key2].date}</p>
+        <p class="des"><b>Type: </b>${movies[index][key1][key2].type}</p>
+        <p class="des" ><b>Director: </b>${movies[index][key1][key2].Director}</p>
+        <p class="des" ><b>Time: </b>${movies[index][key1][key2].time}</p>
         <h2 class="des">Description:</h2>
-        <div class="des">${movies[index][index1][index2].story}</div>
-        <div><button onclick="favireteButton('${movies[index][index1][index2].key}')" id="favBtn">FAVORITE</button> </div></div></div>
+        <div class="des">${movies[index][key1][key2].story}</div>
+        <div><button onclick="favireteButton('${movies[index][key1][key2].key}')" id="favBtn">FAVORITE</button> </div></div></div>
         </div></div>
         <div class="continuer-des">
 
         <iframe id="video" width="400" height="300"
-        src="${movies[index][index1][index2].video}"
+        src="${movies[index][key1][key2].video}"
          frameborder="0" allowFullScreen></iframe>
          </div>
         `);
@@ -615,10 +635,8 @@ const randomMovie = () => {
 
 const darkMode = () => {
   checked = $("input[type=checkbox]:checked").length;
-  console.log(checked);
 
   if (checked === 0) {
-    console.log("che");
     body.css({ backgroundColor: "rgb(46, 38, 38)", color: "white" });
     $(".logo").css({ color: "white" });
     $("#homeNavbar").css({ color: "white" });
@@ -641,10 +659,10 @@ const darkMode = () => {
       backgroundColor: "white",
     });
     body.css({ backgroundColor: "white", color: "rgb(46, 38, 38)" });
-    $(".logo").css({ color: "black" });
-    $("#homeNavbar").css({ color: "black" });
-    $("#moviesNavbar").css({ color: "black" });
-    $(".btn").css({ color: "white", backgroundColor: "black" });
+    $(".logo").css({ color: "#4e4849" });
+    $("#homeNavbar").css({ color: "rgb(75, 69, 69)" });
+    $("#moviesNavbar").css({ color: "rgb(75, 69, 69)" });
+    $(".btn").css({ color: "white", backgroundColor: "rgb(75, 69, 69)" });
     $(".div.card").css({ color: "black", backgroundColor: "white" });
 
     $(".fontCard").css({
@@ -668,8 +686,6 @@ $("#homeNavbar").on("click", () => {
   $(".cont-favPage").hide();
   $(".titlePageFav").hide();
   $(".random-div").hide();
-  $("#homeNavbar").css("color", "goldenrod");
-  $("#moviesNavbar").css("color", "#565950");
   $(".Navbar").css({
     marginBottom: "5px",
   });
@@ -692,11 +708,8 @@ $("#favoriteNavbar").on("click", () => {
   $(".cont-favPage").hide();
   $(".random-div").hide();
   $(".Navbar").css({
-    marginBottom: "1px",
+    marginBottom: "0px",
   });
-
-  $("#homeNavbar").css("color", "#565950");
-  $("#moviesNavbar").css("color", "#565950");
 
   const favPage = $(".FavPage");
   favPage.html("");
@@ -737,7 +750,6 @@ $("#favoriteNavbar").on("click", () => {
     });
     $(".fontCard").css({
       color: "black",
-      // backgroundColor: "white",
     });
   }
 });
@@ -752,8 +764,6 @@ $("#randomNavbar").on("click", () => {
   $(".continuer").hide();
   $(".FavPage").hide();
   $(".titlePageFav").hide();
-  $("#homeNavbar").css("color", "#565950");
-  $("#moviesNavbar").css("color", "#565950");
   $(".cont-favPage").hide();
   randomMovie();
 });
