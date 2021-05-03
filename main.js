@@ -638,7 +638,6 @@ const deleteButton = (index) => {
     localStorage.setItem("counterFav", counterFav);
 
     localStorage.setItem("favMovie", JSON.stringify(favMovies));
-    // JSON.parse(localStorage.getItem("favMovie"));
   } else if (counterFav === 0) {
     $("#FavPage").show();
     localStorage.clear();
