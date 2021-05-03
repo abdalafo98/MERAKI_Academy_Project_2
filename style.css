@@ -189,13 +189,8 @@ body {
   align-items: center;
   justify-content: center;
   max-width: 1300px;
-  margin-left: 100px;
+  margin-left: 150px;
 }
-/* .row:after {
-  content: "";
-  display: table;
-  clear: both;
-} */
 
 div.card {
   width: 270px;
@@ -491,7 +486,7 @@ div.card-image img:hover {
 #filter {
   margin: auto;
   width: 79%;
-  margin-left: 200px;
+  margin-left: 220px;
 }
 
 #favNavNum {

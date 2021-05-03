@@ -311,8 +311,12 @@ let checked = $("input[type=checkbox]:checked").length;
 
 $("#filter").hide();
 $(".titlePageFav").hide();
-let counterFav = 0;
+let counterFav =
+  localStorage.getItem("counterFav") > 0
+    ? localStorage.getItem("counterFav")
+    : 0;
 localStorage.getItem("fav");
+JSON.parse(localStorage.getItem("favMovie"));
 const favNavNum = document.querySelector("#favNavNum");
 favNavNum.innerText = localStorage.getItem("counterFav");
 let favMovies = [];
@@ -490,8 +494,6 @@ const favireteButton = (e) => {
             counterFav++;
             favMovies.push(movies[index][key][movie]);
             localStorage.setItem("counterFav", counterFav);
-            favNavNum.innerText = localStorage.getItem("counterFav");
-            localStorage.setItem("favMovie", JSON.stringify(favMovies));
           } else {
             for (let index2 = 0; index2 < favMovies.length; index2++) {
               if (movie === favMovies[index2]["key"]) {
@@ -501,12 +503,67 @@ const favireteButton = (e) => {
             counterFav++;
             favMovies.push(movies[index][key][movie]);
             localStorage.setItem("counterFav", counterFav);
-            favNavNum.innerText = localStorage.getItem("counterFav");
-            localStorage.setItem("favMovie", JSON.stringify(favMovies));
           }
         }
       }
     }
+  }
+  favNavNum.innerText = localStorage.getItem("counterFav");
+  localStorage.setItem("favMovie", JSON.stringify(favMovies));
+};
+
+const buildFavPage = () => {
+  let getDataFav = JSON.parse(localStorage.getItem("favMovie"));
+  checked = $("input[type=checkbox]:checked").length;
+
+  $(".titlePageFav").show();
+  $("FavPage").show();
+  $(".banner").hide();
+  $(".card").hide();
+  $("#filter").hide();
+  $(".continuer").hide();
+  $(".cont-favPage").hide();
+  $(".random-div").hide();
+  $(".Navbar").css({
+    marginBottom: "0px",
+  });
+
+  const favPage = $(".FavPage");
+  favPage.html("");
+  console.log();
+  for (let index = 0; index < getDataFav.length; index++) {
+    const card = $(
+      `<div class="card" onclick="onClickFav('${index}')">  
+          <div class="card-image">
+          <img id="img" src=${getDataFav[index].img}></div>
+          <div class="card-description">
+          <h2>${getDataFav[index].name}<h2> 
+          <h2 id="${getDataFav[index].type}">${getDataFav[index].type}</h2>
+          <h3>Date: <span class="fontCard">${getDataFav[index].date}</span></h3>
+          <h4>Director:<span class="fontCard"> ${getDataFav[index].Director}</span></h4>
+          </div> 
+          </div>`
+    );
+    favPage.append(card);
+  }
+  $(".FavPage").show();
+  if (checked === 1) {
+    $(".card-description").css({
+      backgroundColor: "rgb(46, 38, 38)",
+      color: "white",
+    });
+    $(".titleH3").css({ color: "white" });
+
+    $(".fontCard").css({
+      color: "white",
+    });
+  } else {
+    $(".card-description").css({
+      backgroundColor: "white",
+    });
+    $(".fontCard").css({
+      color: "black",
+    });
   }
 };
 
@@ -565,30 +622,35 @@ const onClickFav = (e) => {
 // delete from fav
 const deleteButton = (index) => {
   favMovies = JSON.parse(localStorage.getItem("favMovie"));
-  localStorage.setItem("counterFav", counterFav);
-
+  // localStorage.setItem("counterFav", counterFav);
   $(".titlePageFav").show();
-  $(".Navbar").css({
-    marginBottom: "30px",
-  });
+  $("#FavPage").show();
+
+  // $(".Navbar").css({
+  //   marginBottom: "30px",
+  // });
 
   if (counterFav > 0) {
-    $("#FavPage").show();
+    // $("#FavPage").show();
+    favMovies.splice(index, 1);
+
     counterFav--;
     localStorage.setItem("counterFav", counterFav);
-    favMovies.splice(index, 1);
+
     localStorage.setItem("favMovie", JSON.stringify(favMovies));
-  }
-  if (counterFav === 0) {
+    // JSON.parse(localStorage.getItem("favMovie"));
+  } else if (counterFav === 0) {
     $("#FavPage").show();
-    localStorage.clear("favMovie");
-    favNavNum.innerText = localStorage.setItem("counterFav", 0);
+    localStorage.clear();
+    favNavNum.innerText = 0;
+    localStorage.setItem("counterFav", 0);
   }
 
   $(".continuer").hide();
   $(".cont-favPage").hide();
 
   favNavNum.innerText = localStorage.getItem("counterFav");
+  buildFavPage();
 };
 
 const randomMovie = () => {
@@ -632,7 +694,6 @@ const randomMovie = () => {
 
   randomDiv.show();
 };
-
 const darkMode = () => {
   checked = $("input[type=checkbox]:checked").length;
 
@@ -695,68 +756,11 @@ $("#homeNavbar").on("click", () => {
 $("#moviesNavbar").on("click", showMoviePage);
 
 // favorite page
-$("#favoriteNavbar").on("click", () => {
-  let getDataFav = JSON.parse(localStorage.getItem("favMovie"));
-  checked = $("input[type=checkbox]:checked").length;
-
-  $(".titlePageFav").show();
-  $("FavPage").show();
-  $(".banner").hide();
-  $(".card").hide();
-  $("#filter").hide();
-  $(".continuer").hide();
-  $(".cont-favPage").hide();
-  $(".random-div").hide();
-  $(".Navbar").css({
-    marginBottom: "0px",
-  });
-
-  const favPage = $(".FavPage");
-  favPage.html("");
-  console.log();
-  for (
-    let index = 0;
-    index < getDataFav.length == 0 ? 0 : getDataFav.length;
-    index++
-  ) {
-    const card = $(
-      `<div class="card" onclick="onClickFav('${index}')">  
-          <div class="card-image">
-          <img id="img" src=${getDataFav[index].img}></div>
-          <div class="card-description">
-          <h2>${getDataFav[index].name}<h2> 
-          <h2 id="${getDataFav[index].type}">${getDataFav[index].type}</h2>
-          <h3>Date: <span class="fontCard">${getDataFav[index].date}</span></h3>
-          <h4>Director:<span class="fontCard"> ${getDataFav[index].Director}</span></h4>
-          </div> 
-          </div>`
-    );
-    favPage.append(card);
-  }
-  $(".FavPage").show();
-  if (checked === 1) {
-    $(".card-description").css({
-      backgroundColor: "rgb(46, 38, 38)",
-      color: "white",
-    });
-    $(".titleH3").css({ color: "white" });
-
-    $(".fontCard").css({
-      color: "white",
-    });
-  } else {
-    $(".card-description").css({
-      backgroundColor: "white",
-    });
-    $(".fontCard").css({
-      color: "black",
-    });
-  }
-});
+$("#favoriteNavbar").on("click", buildFavPage);
 
 //random Movie
 $("#randomNavbar").on("click", () => {
-  $("#video").trigger("pause");
+  $("#video").attr("src", "");
   $(".titlePageFav").hide();
   $(".banner").hide();
   $(".card").hide();
