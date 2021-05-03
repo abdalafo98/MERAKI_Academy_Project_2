@@ -307,10 +307,8 @@ const continuer = $(".continuer");
 const contFavPage = $(".cont-favPage");
 const randomDiv = $(".random-div");
 
-$(".input:checked").css({
-  backgroundColor: "none",
-  color: "black",
-});
+let checked = $("input[type=checkbox]:checked").length;
+
 $("#filter").hide();
 $(".titlePageFav").hide();
 let counterFav = 0;
@@ -371,12 +369,14 @@ const changeKey = (e) => {
 
 //show all movies
 const showMoviePage = () => {
+  checked = $("input[type=checkbox]:checked").length;
+
   $("#filter").show();
   $(".continuer").hide();
   $(".FavPage").hide();
   $(".banner").hide();
-  // $("#homeNavbar").css("color", "#565950");
-  // $("#moviesNavbar").css("color", "goldenrod");
+  $("#homeNavbar").css("color", "#565950");
+  $("#moviesNavbar").css("color", "goldenrod");
   $(".titlePageFav").hide();
   $(".random-div").hide();
   $(".Navbar").css({
@@ -396,7 +396,7 @@ const showMoviePage = () => {
           <div class="card-description">
           <h2>${movies[index][key][movie].name}<h2> 
           <h2 id="${movies[index][key][movie].type}">${movies[index][key][movie].type}</h2>
-          <h3>Date: <span class="fontCard">${movies[index][key][movie].date}</span></h3>
+          <h3 id="titleH3">Date: <span class="fontCard">${movies[index][key][movie].date}</span></h3>
           <h4 id="fontH4">Director:<span class="fontCard"> ${movies[index][key][movie].Director}</span></h4>
           </div> 
           </div>`
@@ -407,6 +407,25 @@ const showMoviePage = () => {
     }
   }
   $(".row").show();
+
+  if (checked === 1) {
+    $(".card-description").css({
+      backgroundColor: "rgb(46, 38, 38)",
+      color: "white",
+    });
+    $(".titleH3").css({ color: "white" });
+
+    $(".fontCard").css({
+      color: "white",
+    });
+  } else {
+    $(".card-description").css({
+      backgroundColor: "white",
+    });
+    $(".fontCard").css({
+      color: "black",
+    });
+  }
 };
 
 //filter categories
@@ -426,7 +445,7 @@ const filter = (index) => {
           <div class="card-description">
           <h2>${movies[index][key][movie].name}<h2> 
           <h2 id="${movies[index][key][movie].type}">${movies[index][key][movie].type}</h2>
-          <h3>Date: <span class="fontCard">${movies[index][key][movie].date}</span></h3>
+          <h3 id="titleH3">Date: <span class="fontCard">${movies[index][key][movie].date}</span></h3>
           <h4>Director:<span class="fontCard"> ${movies[index][key][movie].Director}</span></h4>
           </div> 
           </div>`
@@ -448,7 +467,6 @@ const favireteButton = (e) => {
         if (movie === e) {
           console.log(favMovies);
           if (favMovies.length == 0) {
-            console.log("ok1");
             counterFav++;
             favMovies.push(movies[index][key][movie]);
             localStorage.setItem("counterFav", counterFav);
@@ -460,7 +478,6 @@ const favireteButton = (e) => {
                 return;
               }
             }
-            // console.log("ok2", movie, favMovies[index2]["key"]);
             counterFav++;
             favMovies.push(movies[index][key][movie]);
             localStorage.setItem("counterFav", counterFav);
@@ -471,9 +488,6 @@ const favireteButton = (e) => {
       }
     }
   }
-  // localStorage.setItem("counterFav", counterFav);
-  // favNavNum.innerText = localStorage.getItem("counterFav");
-  // localStorage.setItem("favMovie", JSON.stringify(favMovies));
 };
 
 // onclick card movie in fav page
@@ -600,46 +614,47 @@ const randomMovie = () => {
 };
 
 const darkMode = () => {
-  var element = document.body;
-  element.classList.toggle("dark-mode");
-  $(".logo").css({ color: "white" });
-  $("#homeNavbar").css({ color: "white" });
-  $("#moviesNavbar").css({ color: "white" });
-  $(".btn").css({ color: "black", backgroundColor: "rgb(241, 235, 235)" });
-  $(".div.card").css({ backgroundColor: "rgb(46, 38, 38)", color: "white" });
-  $(".card-description").css({
-    backgroundColor: "rgb(46, 38, 38)",
-    color: "white",
-  });
+  checked = $("input[type=checkbox]:checked").length;
+  console.log(checked);
 
-  $(".fontCard").css({
-    backgroundColor: "rgb(46, 38, 38)",
-    color: "white",
-  });
+  if (checked === 0) {
+    console.log("che");
+    body.css({ backgroundColor: "rgb(46, 38, 38)", color: "white" });
+    $(".logo").css({ color: "white" });
+    $("#homeNavbar").css({ color: "white" });
+    $("#moviesNavbar").css({ color: "white" });
+    $(".btn").css({ color: "black", backgroundColor: "rgb(241, 235, 235)" });
+    $(".div.card").css({ backgroundColor: "rgb(46, 38, 38)", color: "white" });
+    $(".card-description").css({
+      backgroundColor: "rgb(46, 38, 38)",
+      color: "white",
+    });
+    $(".card").css({ color: "white" });
+    $(".fontCard").css({
+      backgroundColor: "none",
+      color: "white",
+    });
+    $(".titleH3").css({ color: "white" });
+  } else {
+    $(".card-description").css({
+      color: "black",
+      backgroundColor: "white",
+    });
+    body.css({ backgroundColor: "white", color: "rgb(46, 38, 38)" });
+    $(".logo").css({ color: "black" });
+    $("#homeNavbar").css({ color: "black" });
+    $("#moviesNavbar").css({ color: "black" });
+    $(".btn").css({ color: "white", backgroundColor: "black" });
+    $(".div.card").css({ color: "black", backgroundColor: "white" });
 
-  $(".desmovie").css({ backgroundColor: "none", color: "white" });
+    $(".fontCard").css({
+      color: "rgb(46, 38, 38)",
+    });
+  }
+  $(".card").css({ backgroundColor: "white", color: "black" });
 
-  // if($("input[@name='class']:checked").val() == 'A')
+  $(".titleH3").css({ color: "black" });
 };
-
-$(".logo").css({ color: "black" });
-$("#homeNavbar").css({ color: "grey" });
-$("#moviesNavbar").css({ color: "grey" });
-$(".btn").css({ color: "white", backgroundColor: "black" });
-$(".div.card").css({ color: "black", backgroundColor: "white" });
-$(".card-description").css({
-  color: "black",
-  backgroundColor: "white",
-});
-
-// $(".des").css({ color: "black" });
-
-$(".fontCard").css({
-  backgroundColor: "rgb(46, 38, 38)",
-  color: "white",
-});
-
-$(".des").css({ backgroundColor: "none", color: "black" });
 
 //home page
 $("#homeNavbar").on("click", () => {
@@ -666,6 +681,7 @@ $("#moviesNavbar").on("click", showMoviePage);
 // favorite page
 $("#favoriteNavbar").on("click", () => {
   let getDataFav = JSON.parse(localStorage.getItem("favMovie"));
+  checked = $("input[type=checkbox]:checked").length;
 
   $(".titlePageFav").show();
   $("FavPage").show();
@@ -705,6 +721,25 @@ $("#favoriteNavbar").on("click", () => {
     favPage.append(card);
   }
   $(".FavPage").show();
+  if (checked === 1) {
+    $(".card-description").css({
+      backgroundColor: "rgb(46, 38, 38)",
+      color: "white",
+    });
+    $(".titleH3").css({ color: "white" });
+
+    $(".fontCard").css({
+      color: "white",
+    });
+  } else {
+    $(".card-description").css({
+      backgroundColor: "white",
+    });
+    $(".fontCard").css({
+      color: "black",
+      // backgroundColor: "white",
+    });
+  }
 });
 
 //random Movie
