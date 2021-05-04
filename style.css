@@ -380,6 +380,16 @@ div.card-description h2 {
   border-radius: 5px;
 }
 
+#Romance {
+  text-align: center;
+  color: #f0f0f0;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  background-color: #6e0d2a;
+  border-radius: 5px;
+}
+
 #description {
   text-align: center;
   color: #000000;

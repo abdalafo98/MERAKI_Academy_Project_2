@@ -299,6 +299,66 @@ const movies = [
       },
     },
   },
+
+  {
+    romance: {
+      ForrestGump: {
+        key: "ForrestGump",
+        name: "Forrest Gump",
+        date: "6 July 1994",
+        type: "Romance",
+        rating: 8.8,
+        Director: "Robert Zemeckis",
+        img: "images/ForrestGump.jpg",
+        time: "2h 22min",
+        story:
+          "A filmmaker recalls his childhood when falling in love with the pictures at the cinema of his home village and forms a deep friendship with the cinema's projectionist.",
+        video: "https://www.youtube.com/embed/bLvqoHBptjg",
+      },
+
+      CinemaParadiso: {
+        key: "CinemaParadiso",
+        name: "Cinema Paradiso",
+        date: "23 February 1990",
+        type: "Romance",
+        rating: 8.8,
+        Director: "Robert Zemeckis",
+        img: "images/CinemaParadiso.jpg",
+        time: "2h 35min",
+        story:
+          "A filmmaker recalls his childhood when falling in love with the pictures at the cinema of his home village and forms a deep friendship with the cinema's projectionist.",
+        video: "https://www.youtube.com/embed/C2-GX0Tltgw",
+      },
+
+      TheHandmaiden: {
+        key: "TheHandmaiden",
+        name: "The Handmaiden",
+        date: "1 June 2016",
+        type: "Romance",
+        rating: 8.1,
+        Director: "Chan-wook Park",
+        img: "images/TheHandmaiden.jpg",
+        time: "2h 25min",
+        story:
+          "A woman is hired as a handmaiden to a Japanese heiress, but secretly she is involved in a plot to defraud her.",
+        video: "https://www.youtube.com/embed/whldChqCsYk",
+      },
+
+      BeforeSunset: {
+        key: "BeforeSunset",
+        name: "Before Sunset",
+        date: "30 July 2004",
+        type: "Romance",
+        rating: 8.1,
+        Director: "Richard Linklater",
+        img: "images/BeforeSunset.jpg",
+        time: "1h 20min",
+        story:
+          "Nine years after Jesse and Celine first met, they encounter each other again on the French leg of Jesse's book tour.",
+        video: "https://www.youtube.com/embed/oI3UuneLcyU",
+      },
+    },
+  },
 ];
 
 const body = $("body");
@@ -568,7 +628,6 @@ const buildFavPage = () => {
 // onclick card movie in fav page
 const onClickFav = (e) => {
   let getDataFav = JSON.parse(localStorage.getItem("favMovie"));
-
   $("#filter").hide();
   localStorage.setItem("fav", e);
   row.hide();
@@ -588,8 +647,17 @@ const onClickFav = (e) => {
 
   // information movie page
   for (let index = 0; index < getDataFav.length; index++) {
-    contFavPage.html("");
-    const decMovie = $(`
+    console.log(index, "ok");
+    console.log(e, "ok1");
+
+    if (index.toString() === e.toString()) {
+      console.log(index, "ok2", index);
+      console.log(index, "ok3", e);
+
+      contFavPage.html("");
+      console.log(index);
+
+      const decMovie = $(`
           <div class="con-des">
           <img  width="300" height="400" src="${getDataFav[index].img}">
           </div>
@@ -613,8 +681,12 @@ const onClickFav = (e) => {
            </div>
           `);
 
-    contFavPage.append(decMovie);
+      contFavPage.append(decMovie);
+    }
+    console.log(index, "ok4", index);
+    console.log(index, "ok5", e);
   }
+  console.log("ok7", e);
   contFavPage.show();
 };
 // delete from fav
@@ -645,6 +717,8 @@ const deleteButton = (index) => {
 };
 
 const randomMovie = () => {
+  // JSON.parse(localStorage.getItem("favMovie"));
+
   let index = Math.floor(Math.random() * movies.length);
   let key1 = Object.keys(movies[index])[
     Math.floor(Math.random() * Object.keys(movies[index]).length)
