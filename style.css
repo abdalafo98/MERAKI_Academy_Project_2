@@ -12,7 +12,7 @@ body {
 }
 
 #switch {
-  margin-left: 300px;
+  margin-left: 460px;
 }
 
 .banner {
@@ -612,7 +612,6 @@ label:after {
   background-color: #ffffff;
   background-image: url("./images/sun (2).png");
   background-size: 25px 25px;
-
   border-radius: 90px;
   transition: 0.5s;
 }
@@ -630,21 +629,6 @@ input:checked + label:after {
 label:active:after {
   width: 20px;
 }
-
-.dark-mode {
-  background-color: rgb(46, 38, 38);
-  color: white;
-}
-
-.light-mode {
-  background-color: rgb(255, 255, 255);
-  color: rgb(53, 51, 51);
-}
-
-/* .light-mode.div.card {
-  color: "black";
-  background-color: white;
-} */
 
 @media screen and (max-width: 600px) {
   .banner {
