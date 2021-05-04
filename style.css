@@ -188,8 +188,9 @@ body {
 .row {
   align-items: center;
   justify-content: center;
-  max-width: 1300px;
-  margin-left: 130px;
+  max-width: 1000x;
+  margin-left: 60px;
+  margin-right: 15px;
 }
 
 div.card {
@@ -207,8 +208,11 @@ div.card {
 }
 
 .FavPage {
-  margin: auto;
-  width: 80%;
+  align-items: center;
+  justify-content: center;
+  max-width: 1000x;
+  margin-left: 110px;
+  margin-right: 15px;
 }
 #enjoy {
   margin-right: 65px;
@@ -229,7 +233,7 @@ div.card {
 }
 .random-div {
   margin-right: 60px;
-  margin-left: 100px;
+  margin-left: 190px;
   box-sizing: border-box;
 
   display: flex;
@@ -280,7 +284,7 @@ div.card-image img {
 
 .continuer {
   margin-right: 60px;
-  margin-left: 100px;
+  margin-left: 200px;
   box-sizing: border-box;
 
   display: flex;
@@ -495,7 +499,7 @@ div.card-image img:hover {
 #filter {
   margin: auto;
   width: 79%;
-  margin-left: 230px;
+  margin-left: 170px;
 }
 
 #favNavNum {
