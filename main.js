@@ -378,7 +378,7 @@ let counterFav =
 localStorage.getItem("fav");
 let arr =
   JSON.parse(localStorage.getItem("favMovie")) === undefined
-    ? 0
+    ? []
     : JSON.parse(localStorage.getItem("favMovie"));
 const favNavNum = document.querySelector("#favNavNum");
 favNavNum.innerText = localStorage.getItem("counterFav");
