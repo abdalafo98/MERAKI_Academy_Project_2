@@ -383,7 +383,9 @@ let arr =
 const favNavNum = document.querySelector("#favNavNum");
 favNavNum.innerText = localStorage.getItem("counterFav");
 let favMovies =
-  arr.length > 0 ? JSON.parse(localStorage.getItem("favMovie")) : [];
+  JSON.parse(localStorage.getItem("favMovie")) == undefined
+    ? []
+    : JSON.parse(localStorage.getItem("favMovie"));
 
 // get card key
 const changeKey = (e) => {
@@ -544,6 +546,7 @@ const filter = (index) => {
 // push fav movie on array favMovies
 // favMovies = JSON.parse(localStorage.getItem("favMovie"));
 const favireteButton = (e) => {
+  let favArr = favMovies.length == undefined ? 0 : favMovies.length;
   console.log(e);
   for (let index = 0; index < movies.length; index++) {
     for (const key in movies[index]) {
@@ -553,7 +556,7 @@ const favireteButton = (e) => {
         }
         if (movie === e) {
           console.log(favMovies);
-          if (favMovies.length == 0) {
+          if (favArr.length === 0) {
             counterFav++;
             favMovies.push(movies[index][key][movie]);
             localStorage.setItem("counterFav", counterFav);
