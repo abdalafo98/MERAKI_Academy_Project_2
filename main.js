@@ -670,7 +670,7 @@ const onClickFav = (e) => {
           <h2 class="des">Description:</h2>
           <div class="des">${getDataFav[index].story}</div>
          
-          <div><button id="deleteButton" onclick="deleteButton('${index}')">Remove from favorites</button> </div></div></div>
+          <div><button id="deleteButton" onclick="deleteButton('${index}')">Remove</button> </div></div></div>
           <div class="continuer-des">
           <iframe id="video" width="400" height="300"
           src="${getDataFav[index].video}"
