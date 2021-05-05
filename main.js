@@ -766,7 +766,6 @@ const darkMode = () => {
       color: "white",
     });
     $(".titleH3").css({ color: "white" });
-    $("#img-des ").css({ border: "2px solid white" });
   } else {
     $(".card-description").css({
       color: "black",
@@ -783,7 +782,6 @@ const darkMode = () => {
       color: "rgb(46, 38, 38)",
     });
   }
-  $("#img-des ").css({ border: "2px solid white" });
 
   $(".card").css({ backgroundColor: "white", color: "black" });
 
