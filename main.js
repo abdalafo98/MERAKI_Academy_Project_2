@@ -316,18 +316,18 @@ const movies = [
         video: "https://www.youtube.com/embed/bLvqoHBptjg",
       },
 
-      CinemaParadiso: {
-        key: "CinemaParadiso",
-        name: "Cinema Paradiso",
-        date: "23 February 1990",
+      Her: {
+        key: "Her",
+        name: "Her",
+        date: "10 January 2014",
         type: "Romance",
-        rating: 8.8,
-        Director: "Robert Zemeckis",
-        img: "images/CinemaParadiso.jpg",
-        time: "2h 35min",
+        rating: 8.1,
+        Director: "Spike Jonze",
+        img: "images/Her.jpg",
+        time: "2h 6min",
         story:
-          "A filmmaker recalls his childhood when falling in love with the pictures at the cinema of his home village and forms a deep friendship with the cinema's projectionist.",
-        video: "https://www.youtube.com/embed/C2-GX0Tltgw",
+          "In a near future, a lonely writer develops an unlikely relationship with an operating system designed to meet his every need.",
+        video: "https://www.youtube.com/embed/dJTU48_yghs",
       },
 
       TheHandmaiden: {
@@ -377,7 +377,7 @@ let counterFav =
     : 0;
 localStorage.getItem("fav");
 const favNavNum = document.querySelector("#favNavNum");
-favNavNum.innerText = localStorage.getItem("counterFav");
+favNavNum.innerText = counterFav;
 let favMovies =
   JSON.parse(localStorage.getItem("favMovie")) == undefined
     ? []
@@ -403,7 +403,7 @@ const changeKey = (e) => {
           continuer.html("");
           const decMovie = $(`
           <div class="con-des">
-          <img  width="300" height="400" src="${movies[index][key][movie].img}">
+          <img id="img-des" width="300" height="400" src="${movies[index][key][movie].img}">
           </div>
           <div class="desmovie">
           <p id="${movies[index][key][movie].type}">${movies[index][key][movie].name}</p>
@@ -657,7 +657,7 @@ const onClickFav = (e) => {
       contFavPage.html("");
       const decMovie = $(`
           <div class="con-des">
-          <img  width="300" height="400" src="${getDataFav[index].img}">
+          <img id="img-des" width="300" height="400" src="${getDataFav[index].img}">
           </div>
           <div class="desmovie">
           <p id="${getDataFav[index].type}">${getDataFav[index].name}</p>
@@ -720,7 +720,7 @@ const randomMovie = () => {
   randomDiv.html("");
   const decMovie = $(`
         <div class="con-des">
-        <img  width="300" height="400" src="${movies[index][key1][key2].img}">
+        <img id="img-des" width="300" height="400" src="${movies[index][key1][key2].img}">
         </div>
         <div class="desmovie">
         <p id="${movies[index][key1][key2].type}">${movies[index][key1][key2].name}</p>
@@ -766,6 +766,7 @@ const darkMode = () => {
       color: "white",
     });
     $(".titleH3").css({ color: "white" });
+    $("#img-des ").css({ border: "2px solid white" });
   } else {
     $(".card-description").css({
       color: "black",
@@ -782,6 +783,8 @@ const darkMode = () => {
       color: "rgb(46, 38, 38)",
     });
   }
+  $("#img-des ").css({ border: "2px solid white" });
+
   $(".card").css({ backgroundColor: "white", color: "black" });
 
   $(".titleH3").css({ color: "black" });
