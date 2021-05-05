@@ -337,7 +337,7 @@ div.card-image img {
   margin-bottom: 15px;
   border: none;
   position: relative;
-  left: 100px;
+  /* left: 5px; */
   background-color: rgb(233, 35, 35);
   padding: 15px 30px 15px 30px;
   border-radius: 20px;
