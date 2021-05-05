@@ -376,10 +376,14 @@ let counterFav =
     ? localStorage.getItem("counterFav")
     : 0;
 localStorage.getItem("fav");
-JSON.parse(localStorage.getItem("favMovie"));
+let arr =
+  JSON.parse(localStorage.getItem("favMovie")) === undefined
+    ? 0
+    : JSON.parse(localStorage.getItem("favMovie"));
 const favNavNum = document.querySelector("#favNavNum");
 favNavNum.innerText = localStorage.getItem("counterFav");
-let favMovies = [];
+let favMovies =
+  arr.length > 0 ? JSON.parse(localStorage.getItem("favMovie")) : [];
 
 // get card key
 const changeKey = (e) => {
@@ -538,6 +542,7 @@ const filter = (index) => {
 };
 
 // push fav movie on array favMovies
+// favMovies = JSON.parse(localStorage.getItem("favMovie"));
 const favireteButton = (e) => {
   console.log(e);
   for (let index = 0; index < movies.length; index++) {
@@ -552,6 +557,8 @@ const favireteButton = (e) => {
             counterFav++;
             favMovies.push(movies[index][key][movie]);
             localStorage.setItem("counterFav", counterFav);
+            favNavNum.innerText = localStorage.getItem("counterFav");
+            localStorage.setItem("favMovie", JSON.stringify(favMovies));
           } else {
             for (let index2 = 0; index2 < favMovies.length; index2++) {
               if (movie === favMovies[index2]["key"]) {
@@ -561,13 +568,13 @@ const favireteButton = (e) => {
             counterFav++;
             favMovies.push(movies[index][key][movie]);
             localStorage.setItem("counterFav", counterFav);
+            favNavNum.innerText = localStorage.getItem("counterFav");
+            localStorage.setItem("favMovie", JSON.stringify(favMovies));
           }
         }
       }
     }
   }
-  favNavNum.innerText = localStorage.getItem("counterFav");
-  localStorage.setItem("favMovie", JSON.stringify(favMovies));
 };
 
 const buildFavPage = () => {
@@ -647,16 +654,8 @@ const onClickFav = (e) => {
 
   // information movie page
   for (let index = 0; index < getDataFav.length; index++) {
-    console.log(index, "ok");
-    console.log(e, "ok1");
-
     if (index.toString() === e.toString()) {
-      console.log(index, "ok2", index);
-      console.log(index, "ok3", e);
-
       contFavPage.html("");
-      console.log(index);
-
       const decMovie = $(`
           <div class="con-des">
           <img  width="300" height="400" src="${getDataFav[index].img}">
@@ -674,7 +673,6 @@ const onClickFav = (e) => {
          
           <div><button id="deleteButton" onclick="deleteButton('${index}')">Delete</button> </div></div></div>
           <div class="continuer-des">
-
           <iframe id="video" width="400" height="300"
           src="${getDataFav[index].video}"
            frameborder="0" allowFullScreen></iframe>
@@ -683,24 +681,18 @@ const onClickFav = (e) => {
 
       contFavPage.append(decMovie);
     }
-    console.log(index, "ok4", index);
-    console.log(index, "ok5", e);
   }
-  console.log("ok7", e);
   contFavPage.show();
 };
-// delete from fav
+
 const deleteButton = (index) => {
   favMovies = JSON.parse(localStorage.getItem("favMovie"));
   $(".titlePageFav").show();
   $("#FavPage").show();
-
   if (counterFav > 0) {
     favMovies.splice(index, 1);
-
     counterFav--;
     localStorage.setItem("counterFav", counterFav);
-
     localStorage.setItem("favMovie", JSON.stringify(favMovies));
   } else if (counterFav === 0) {
     $("#FavPage").show();
@@ -708,17 +700,13 @@ const deleteButton = (index) => {
     favNavNum.innerText = 0;
     localStorage.setItem("counterFav", 0);
   }
-
   $(".continuer").hide();
   $(".cont-favPage").hide();
-
   favNavNum.innerText = localStorage.getItem("counterFav");
   buildFavPage();
 };
 
 const randomMovie = () => {
-  // JSON.parse(localStorage.getItem("favMovie"));
-
   let index = Math.floor(Math.random() * movies.length);
   let key1 = Object.keys(movies[index])[
     Math.floor(Math.random() * Object.keys(movies[index]).length)
