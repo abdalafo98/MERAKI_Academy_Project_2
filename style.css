@@ -632,6 +632,23 @@ label:active:after {
   width: 20px;
 }
 
+.clearFav {
+  margin-top: 60px;
+
+  padding: 8px;
+  background-color: rgb(16, 134, 143);
+  border: rgb(16, 134, 143);
+  color: honeydew;
+  position: fixed;
+  border-radius: 5px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+.clearFav:hover {
+  background-color: rgb(255, 183, 0);
+  border: rgb(255, 183, 0);
+}
+
 @media screen and (max-width: 600px) {
   .banner {
     display: block;

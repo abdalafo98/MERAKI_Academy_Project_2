@@ -270,20 +270,6 @@ const movies = [
         video: "https://www.youtube.com/embed/gzFCk_cvmik",
       },
 
-      GetOut: {
-        key: "GetOut ",
-        name: "Get Out ",
-        date: "24 February 2017",
-        type: "Horror",
-        rating: 7.7,
-        Director: "Jordan Peele",
-        img: "images/GetOut.jpg",
-        time: "1h 44min",
-        story:
-          "A young African-American visits his white girlfriend's parents for the weekend, where his simmering uneasiness about their reception of him eventually reaches a boiling point.",
-        video: "https://www.youtube.com/embed/DzfpyUB60YY",
-      },
-
       TraintoBusan: {
         key: "TraintoBusan",
         name: "Train to Busan",
@@ -366,6 +352,7 @@ const row = $(".row");
 const continuer = $(".continuer");
 const contFavPage = $(".cont-favPage");
 const randomDiv = $(".random-div");
+$(".clearFav").hide();
 
 let checked = $("input[type=checkbox]:checked").length;
 
@@ -394,6 +381,10 @@ const changeKey = (e) => {
   $(".cont-favPage").hide();
   $(".card").hide();
 
+  counterFav =
+    counterFav === 0
+      ? localStorage.setItem("counterFav", 0)
+      : localStorage.getItem("counterFav");
   // on click movie card in movie page
   for (let index = 0; index < movies.length; index++) {
     for (const key in movies[index]) {
@@ -436,13 +427,17 @@ const changeKey = (e) => {
 //show all movies
 const showMoviePage = () => {
   checked = $("input[type=checkbox]:checked").length;
-
+  counterFav =
+    counterFav === 0
+      ? localStorage.setItem("counterFav", 0)
+      : localStorage.getItem("counterFav");
   $("#filter").show();
   $(".continuer").hide();
   $(".FavPage").hide();
   $(".banner").hide();
   $(".titlePageFav").hide();
   $(".random-div").hide();
+  $(".clearFav").hide();
   $(".Navbar").css({
     marginBottom: "20px",
   });
@@ -495,7 +490,10 @@ const showMoviePage = () => {
 //filter categories
 const filter = (index) => {
   checked = $("input[type=checkbox]:checked").length;
-
+  counterFav =
+    counterFav === 0
+      ? localStorage.setItem("counterFav", 0)
+      : localStorage.getItem("counterFav");
   row.html("");
 
   if (index == "") {
@@ -543,6 +541,10 @@ const filter = (index) => {
 // favMovies = JSON.parse(localStorage.getItem("favMovie"));
 const favireteButton = (e) => {
   let favArr = favMovies.length == undefined ? 0 : favMovies.length;
+  counterFav =
+    counterFav === 0
+      ? localStorage.setItem("counterFav", 0)
+      : localStorage.getItem("counterFav");
   console.log(e);
   for (let index = 0; index < movies.length; index++) {
     for (const key in movies[index]) {
@@ -550,6 +552,7 @@ const favireteButton = (e) => {
         if (counterFav === 0) {
           favNavNum.innerText = localStorage.setItem("counterFav", 0);
         }
+
         if (movie === e) {
           console.log(favMovies);
           if (favArr.length === 0) {
@@ -575,11 +578,21 @@ const favireteButton = (e) => {
     }
   }
 };
+const clearAllFav = () => {
+  counterFav = localStorage.setItem("counterFav", 0);
+  favNavNum.innerText = 0;
+  localStorage.setItem("favMovie", JSON.stringify([]));
+  favMovies = [];
+  showMoviePage();
+};
 
 const buildFavPage = () => {
   let getDataFav = JSON.parse(localStorage.getItem("favMovie"));
   checked = $("input[type=checkbox]:checked").length;
-
+  counterFav =
+    counterFav === 0
+      ? localStorage.setItem("counterFav", 0)
+      : localStorage.getItem("counterFav");
   $(".titlePageFav").show();
   $("FavPage").show();
   $(".banner").hide();
@@ -588,9 +601,15 @@ const buildFavPage = () => {
   $(".continuer").hide();
   $(".cont-favPage").hide();
   $(".random-div").hide();
+
   $(".Navbar").css({
     marginBottom: "0px",
   });
+  if (favMovies.length > 0) {
+    $(".clearFav").show();
+  } else {
+    $(".clearFav").hide();
+  }
 
   const favPage = $(".FavPage");
   favPage.html("");
@@ -633,6 +652,10 @@ const buildFavPage = () => {
 
 // onclick card movie in fav page
 const onClickFav = (e) => {
+  counterFav =
+    counterFav === 0
+      ? localStorage.setItem("counterFav", 0)
+      : localStorage.getItem("counterFav");
   let getDataFav = JSON.parse(localStorage.getItem("favMovie"));
   $("#filter").hide();
   localStorage.setItem("fav", e);
@@ -647,6 +670,7 @@ const onClickFav = (e) => {
   $("#filter").hide();
   $(".titlePageFav").hide();
   $(".random-div").hide();
+  $(".clearFav").hide();
   $(".Navbar").css({
     marginBottom: "30px",
   });
@@ -685,6 +709,10 @@ const onClickFav = (e) => {
 };
 
 const deleteButton = (index) => {
+  counterFav =
+    counterFav === 0
+      ? localStorage.setItem("counterFav", 0)
+      : localStorage.getItem("counterFav");
   favMovies = JSON.parse(localStorage.getItem("favMovie"));
   $(".titlePageFav").show();
   $("#FavPage").show();
@@ -800,6 +828,7 @@ $("#homeNavbar").on("click", () => {
   $(".cont-favPage").hide();
   $(".titlePageFav").hide();
   $(".random-div").hide();
+  $(".clearFav").hide();
   $(".Navbar").css({
     marginBottom: "0px",
   });
@@ -820,6 +849,7 @@ $("#randomNavbar").on("click", () => {
   $("#filter").hide();
   $(".continuer").hide();
   $(".FavPage").hide();
+  $(".clearFav").hide();
   $(".titlePageFav").hide();
   $(".cont-favPage").hide();
   randomMovie();
